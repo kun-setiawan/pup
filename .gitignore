@@ -1,4 +1,11 @@
+.idea
 node_modules
 settings-demo.json
+settings-development.json
 settings-staging.json
 settings-production.json
+public/bower_components
+public/dist
+public/plugins
+public/build
+public/documentation

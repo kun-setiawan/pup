@@ -30,6 +30,7 @@ import Privacy from '../../pages/Privacy/Privacy';
 import ExamplePage from '../../pages/ExamplePage/ExamplePage';
 import VerifyEmailAlert from '../../components/VerifyEmailAlert/VerifyEmailAlert';
 import getUserName from '../../../modules/get-user-name';
+import Header from '../../components/Header/Header';
 
 import './App.scss';
 
@@ -57,7 +58,7 @@ class App extends React.Component {
                 emailAddress={props.emailAddress}
               />
               : ''}
-            <Navigation {...props} {...state} />
+            <Header {...props} {...state} />
             <Grid>
               <Switch>
                 <Route exact name="index" path="/" component={Index} />
