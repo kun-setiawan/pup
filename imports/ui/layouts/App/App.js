@@ -8,7 +8,6 @@ import { Grid } from 'react-bootstrap';
 import { Meteor } from 'meteor/meteor';
 import { withTracker } from 'meteor/react-meteor-data';
 import { Roles } from 'meteor/alanning:roles';
-import Navigation from '../../components/Navigation/Navigation';
 import Authenticated from '../../components/Authenticated/Authenticated';
 import Public from '../../components/Public/Public';
 import Index from '../../pages/Index/Index';
@@ -51,13 +50,6 @@ class App extends React.Component {
       <Router>
         {!props.loading ? (
           <div className="App">
-            {props.authenticated ?
-              <VerifyEmailAlert
-                userId={props.userId}
-                emailVerified={props.emailVerified}
-                emailAddress={props.emailAddress}
-              />
-              : ''}
             <Header {...props} {...state} />
             <Grid>
               <Switch>
