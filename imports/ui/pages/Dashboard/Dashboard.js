@@ -4,8 +4,6 @@ import BoxSmall from '../../components/Box/BoxSmall';
 import BoxInfo from '../../components/Box/BoxInfo';
 import Box from '../../components/Box/Box';
 
-import './Dashboard.scss';
-
 const Dashboard = () => (
   <div style={{ paddingTop: '0px' }}>
     <Sidebar />
