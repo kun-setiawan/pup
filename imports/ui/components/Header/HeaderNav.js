@@ -2,7 +2,7 @@ import React from 'react';
 
 const HeaderNav = () => (
   <div>
-    <aside className="main-sidebar" style={{ position: 'fixed' }}>
+    <aside className="main-sidebar">
       <section className="sidebar">
         <div className="user-panel">
           <div className="pull-left image">

@@ -62,10 +62,9 @@ class App extends React.Component {
                             : '' */}
             <Header {...props} {...state} />
             { /* <Navigation {...props} {...state} /> */}
-            <div>
+            <Grid>
               <Switch>
                 <Route exact name="index" path="/" component={Index} />
-                <Route exact name="dashboard" path="/dashboard" component={Dashboard} />
                 <Authenticated exact path="/documents" component={Documents} setAfterLoginPath={setAfterLoginPath} {...props} {...state} />
                 <Authenticated exact path="/documents/new" component={NewDocument} setAfterLoginPath={setAfterLoginPath} {...props} {...state} />
                 <Authenticated exact path="/documents/:_id" component={ViewDocument} setAfterLoginPath={setAfterLoginPath} {...props} {...state} />
@@ -80,11 +79,13 @@ class App extends React.Component {
                 <Route name="terms" path="/terms" component={Terms} />
                 <Route name="privacy" path="/privacy" component={Privacy} />
                 <Route name="examplePage" path="/example-page" component={ExamplePage} />
+
                 <Route name="componentList" path="/componentList" component={ComponentList} />
+                <Route exact name="dashboard" path="/dashboard" component={Dashboard} />
 
                 <Route component={NotFound} />
               </Switch>
-            </div>
+            </Grid>
             <Footer />
           </div>
         ) : ''}

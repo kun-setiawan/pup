@@ -1,59 +1,29 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import { withTracker } from 'meteor/react-meteor-data';
 
-const Table = () => (
+const Table = ({ title, data, tableShape }) => (
   <div className="box">
-    <div className="box-header with-border">
-      <h3 className="box-title">Bordered Table</h3>
-    </div>
+    { title && !(title === '') ?
+      <div className="box-header with-border">
+        <h3 className="box-title">{title}</h3>
+      </div> : '' }
     { /* /.box-header */ }
     <div className="box-body">
-      <table className="table table-bordered">
+      <table className={tableShape}>
         <tr>
           <th style={{ width: '10px' }}>#</th>
           <th>Task</th>
           <th>Progress</th>
           <th style={{ width: '40px' }}>Label</th>
         </tr>
-        <tr>
-          <td>1.</td>
-          <td>Update software</td>
-          <td>
-            <div className="progress progress-xs">
-              <div className="progress-bar progress-bar-danger" style={{ width: '55%' }} />
-            </div>
-          </td>
-          <td><span className="badge bg-red">55%</span></td>
-        </tr>
-        <tr>
-          <td>2.</td>
-          <td>Clean database</td>
-          <td>
-            <div className="progress progress-xs">
-              <div className="progress-bar progress-bar-yellow" style={{ width: '70%' }} />
-            </div>
-          </td>
-          <td><span className="badge bg-yellow">70%</span></td>
-        </tr>
-        <tr>
-          <td>3.</td>
-          <td>Cron job running</td>
-          <td>
-            <div className="progress progress-xs progress-striped active">
-              <div className="progress-bar progress-bar-primary" style={{ width: '30%' }} />
-            </div>
-          </td>
-          <td><span className="badge bg-light-blue">30%</span></td>
-        </tr>
-        <tr>
-          <td>4.</td>
-          <td>Fix and squish bugs</td>
-          <td>
-            <div className="progress progress-xs progress-striped active">
-              <div className="progress-bar progress-bar-success" style={{ width: '90%' }} />
-            </div>
-          </td>
-          <td><span className="badge bg-green">90%</span></td>
-        </tr>
+        {data.map(row => (
+          <tr>
+            {row.map(field => (
+              <td>{field}</td>
+                  ))}
+          </tr>
+          ))}
       </table>
     </div>
     { /* /.box-body */ }
@@ -71,9 +41,37 @@ const Table = () => (
 );
 
 Table.defaultProps = {
+  title: '',
+  shape: '',
+  tableShape: '',
 };
 
 Table.propTypes = {
+  title: PropTypes.string,
+  shape: PropTypes.string,
+  tableShape: PropTypes.string,
+  data: PropTypes.arrayOf(PropTypes.array).isRequired,
 };
 
-export default Table;
+export default withTracker((props) => {
+  let tableShape = 'table';
+  switch (props.shape) {
+    case 'condensed':
+      tableShape = 'table table-condensed';
+      break;
+    case 'striped':
+      tableShape = 'table table-striped';
+      break;
+    case 'hover':
+      tableShape = 'table table-hover';
+      break;
+    case 'bordered':
+      tableShape = 'table table-bordered';
+      break;
+    default:
+      tableShape = 'table';
+  }
+  return {
+    tableShape,
+  };
+})(Table);
