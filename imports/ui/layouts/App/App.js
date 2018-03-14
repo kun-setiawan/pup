@@ -34,6 +34,8 @@ import getUserName from '../../../modules/get-user-name';
 import Header from '../../components/Header/Header';
 import ComponentList from '../../pages/Component/ComponentList';
 import Boxes from '../../pages/Component/Box';
+import Table from '../../pages/Component/Table';
+import TableData from '../../pages/Component/TableData';
 
 import './App.scss';
 
@@ -82,7 +84,9 @@ class App extends React.Component {
                 <Route name="examplePage" path="/example-page" component={ExamplePage} />
 
                 <Route name="componentList" path="/componentList" component={ComponentList} />
-                <Route name="box" path="/box" component={Boxes} />
+                <Route name="box" path="/componentBox" component={Boxes} />
+                <Route name="table" path="/componentTable" component={Table} />
+                <Route name="tableData" path="/componentTableData" component={TableData} />
                 <Route exact name="dashboard" path="/dashboard" component={Dashboard} />
 
                 <Route component={NotFound} />

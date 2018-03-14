@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { withTracker } from 'meteor/react-meteor-data';
 
-const Table = ({ title, data, tableShape }) => (
+const Table = ({ title, header, data, tableShape }) => (
   <div className="box">
     { title && !(title === '') ?
       <div className="box-header with-border">
@@ -11,23 +11,23 @@ const Table = ({ title, data, tableShape }) => (
     { /* /.box-header */ }
     <div className="box-body">
       <table className={tableShape}>
-        <tbody>
+        <thead>
           <tr>
             <th style={{ width: '10px' }}>#</th>
             <th>Task</th>
             <th>Progress</th>
             <th style={{ width: '40px' }}>Label</th>
           </tr>
-        </tbody>
-        {data.map(row => (
-          <tbody>
+        </thead>
+        <tbody>
+          {data.map(row => (
             <tr>
               {row.map(field => (
                 <td>{field}</td>
                   ))}
             </tr>
-          </tbody>
           ))}
+        </tbody>
       </table>
     </div>
     { /* /.box-body */ }
@@ -54,6 +54,7 @@ Table.propTypes = {
   title: PropTypes.string,
   shape: PropTypes.string,
   tableShape: PropTypes.string,
+  header: PropTypes.arrayOf(PropTypes.array).isRequired,
   data: PropTypes.arrayOf(PropTypes.array).isRequired,
 };
 
