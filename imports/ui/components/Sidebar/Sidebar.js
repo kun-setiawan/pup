@@ -1,21 +1,25 @@
 import React from 'react';
 
-const HeaderNav = () => (
+import './Sidebar.scss';
+
+const Sidebar = () => (
   <div>
-    <aside className="main-sidebar" style={{ position: 'fixed' }}>
+    <aside className="main-sidebar">
       <section className="sidebar">
         <div className="user-panel">
           <div className="pull-left image">
             <img src="dist/img/user2-160x160.jpg" className="img-circle" alt="User Image" />
           </div>
           <div className="pull-left info">
-            <p>Alexander Pierce</p>
+            <p>Sidebar Profile</p>
             <a href="#"><i className="fa fa-circle text-success" /> Online</a>
           </div>
         </div>
+        <strong style={{ color: 'white' }}>Sidebar Search</strong>
         <form action="#" method="get" className="sidebar-form">
           <div className="input-group">
-            <input type="text" name="q" className="form-control" placeholder="Search..." />
+
+            <input type="text" name="q" className="form-control" placeholder="Sidebar Search" />
             <span className="input-group-btn">
               <button type="submit" name="search" id="search-btn" className="btn btn-flat"><i className="fa fa-search" />
               </button>
@@ -23,7 +27,8 @@ const HeaderNav = () => (
           </div>
         </form>
         <ul className="sidebar-menu" data-widget="tree">
-          <li className="header">MAIN NAVIGATION</li>
+          <li className="header"><strong style={{ color: 'white' }}>Sidebar Navigation</strong></li>
+          <li className="header"> NAVIGATION</li>
           <li className="active treeview">
             <a href="#">
               <i className="fa fa-dashboard" /> <span>Dashboard</span>
@@ -165,17 +170,17 @@ const HeaderNav = () => (
               <li><a href="#"><i className="fa fa-circle-o" /> Level One</a></li>
               <li className="treeview">
                 <a href="#"><i className="fa fa-circle-o" /> Level One
-                    <span className="pull-right-container">
-                      <i className="fa fa-angle-left pull-right" />
-                    </span>
+                                    <span className="pull-right-container">
+                                      <i className="fa fa-angle-left pull-right" />
+                                    </span>
                 </a>
                 <ul className="treeview-menu">
                   <li><a href="#"><i className="fa fa-circle-o" /> Level Two</a></li>
                   <li className="treeview">
                     <a href="#"><i className="fa fa-circle-o" /> Level Two
-                            <span className="pull-right-container">
-                              <i className="fa fa-angle-left pull-right" />
-                            </span>
+                                            <span className="pull-right-container">
+                                              <i className="fa fa-angle-left pull-right" />
+                                            </span>
                       </a>
                     <ul className="treeview-menu">
                         <li><a href="#"><i className="fa fa-circle-o" /> Level Three</a></li>
@@ -198,10 +203,4 @@ const HeaderNav = () => (
   </div>
 );
 
-HeaderNav.defaultProps = {
-};
-
-HeaderNav.propTypes = {
-};
-
-export default HeaderNav;
+export default Sidebar;
