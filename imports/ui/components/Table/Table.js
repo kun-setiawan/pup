@@ -11,18 +11,22 @@ const Table = ({ title, data, tableShape }) => (
     { /* /.box-header */ }
     <div className="box-body">
       <table className={tableShape}>
-        <tr>
-          <th style={{ width: '10px' }}>#</th>
-          <th>Task</th>
-          <th>Progress</th>
-          <th style={{ width: '40px' }}>Label</th>
-        </tr>
-        {data.map(row => (
+        <tbody>
           <tr>
-            {row.map(field => (
-              <td>{field}</td>
-                  ))}
+            <th style={{ width: '10px' }}>#</th>
+            <th>Task</th>
+            <th>Progress</th>
+            <th style={{ width: '40px' }}>Label</th>
           </tr>
+        </tbody>
+        {data.map(row => (
+          <tbody>
+            <tr>
+              {row.map(field => (
+                <td>{field}</td>
+                  ))}
+            </tr>
+          </tbody>
           ))}
       </table>
     </div>
