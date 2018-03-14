@@ -63,7 +63,7 @@ BoxInfo.defaultProps = {
   text: '',
   count: '',
   countSign: '',
-  progressCount: {},
+  progressCount: 0,
   progressText: 'increased in 30 days',
   color: '',
 };

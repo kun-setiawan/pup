@@ -1,15 +1,17 @@
+import PropTypes from 'prop-types';
 import React from 'react';
-import Sidebar from './../../components/Sidebar/Sidebar';
+import { withTracker } from 'meteor/react-meteor-data';
 import BoxSmall from '../../components/Box/BoxSmall';
 import BoxInfo from '../../components/Box/BoxInfo';
 import Box from '../../components/Box/Box';
 
-const Dashboard = () => (
-  <div style={{ paddingTop: '0px' }}>
+const Boxes = () => (
+  <div>
+    { /*  Main content */ }
+    <section className="content">
 
-    <div>
       <div className="row">
-        <h2>Box Small</h2>
+        <h2 style={{color: 'white'}}>Box Small</h2>
 
         <BoxSmall />
         <BoxSmall
@@ -37,7 +39,7 @@ const Dashboard = () => (
       </div>
 
       <div className="row">
-        <h2>Box Info with Background Color</h2>
+        <h2 style={{color: 'white'}}>Box Info with Background Color</h2>
         <div className="col-md-3 col-sm-6 col-xs-12">
           <BoxInfo
             icon="ion ion-ios-gear-outline"
@@ -78,7 +80,7 @@ const Dashboard = () => (
       </div>
 
       <div className="row">
-        <h2>Box Info</h2>
+        <h2 style={{color: 'white'}}>Box Info</h2>
         <div className="col-md-3 col-sm-6 col-xs-12">
           <BoxInfo
             icon="ion ion-ios-gear-outline"
@@ -158,8 +160,10 @@ const Dashboard = () => (
           </Box>
         </div>
       </div>
-    </div>
+
+    </section>
   </div>
 );
 
-export default Dashboard;
+export default Boxes;
+

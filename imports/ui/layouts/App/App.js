@@ -33,6 +33,7 @@ import ExamplePage from '../../pages/ExamplePage/ExamplePage';
 import getUserName from '../../../modules/get-user-name';
 import Header from '../../components/Header/Header';
 import ComponentList from '../../pages/Component/ComponentList';
+import Boxes from '../../pages/Component/Box';
 
 import './App.scss';
 
@@ -81,6 +82,7 @@ class App extends React.Component {
                 <Route name="examplePage" path="/example-page" component={ExamplePage} />
 
                 <Route name="componentList" path="/componentList" component={ComponentList} />
+                <Route name="box" path="/box" component={Boxes} />
                 <Route exact name="dashboard" path="/dashboard" component={Dashboard} />
 
                 <Route component={NotFound} />
