@@ -1,9 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import './BoxSmall.scss';
-
-
 const BoxSmall = ({
   number, sign, text, icon, color, url,
 }) => (
