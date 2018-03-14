@@ -8,6 +8,7 @@ import { Grid } from 'react-bootstrap';
 import { Meteor } from 'meteor/meteor';
 import { withTracker } from 'meteor/react-meteor-data';
 import { Roles } from 'meteor/alanning:roles';
+// import Navigation from '../../components/Navigation/Navigation';
 import Authenticated from '../../components/Authenticated/Authenticated';
 import Public from '../../components/Public/Public';
 import Index from '../../pages/Index/Index';
@@ -27,9 +28,10 @@ import Footer from '../../components/Footer/Footer';
 import Terms from '../../pages/Terms/Terms';
 import Privacy from '../../pages/Privacy/Privacy';
 import ExamplePage from '../../pages/ExamplePage/ExamplePage';
-import VerifyEmailAlert from '../../components/VerifyEmailAlert/VerifyEmailAlert';
+// import VerifyEmailAlert from '../../components/VerifyEmailAlert/VerifyEmailAlert';
 import getUserName from '../../../modules/get-user-name';
 import Header from '../../components/Header/Header';
+import ComponentList from '../../pages/Component/ComponentList';
 
 import './App.scss';
 
@@ -50,7 +52,15 @@ class App extends React.Component {
       <Router>
         {!props.loading ? (
           <div className="App">
+            {/* props.authenticated ?
+              <VerifyEmailAlert
+                userId={props.userId}
+                emailVerified={props.emailVerified}
+                emailAddress={props.emailAddress}
+              />
+                            : '' */}
             <Header {...props} {...state} />
+            { /* <Navigation {...props} {...state} /> */}
             <Grid>
               <Switch>
                 <Route exact name="index" path="/" component={Index} />
@@ -68,6 +78,8 @@ class App extends React.Component {
                 <Route name="terms" path="/terms" component={Terms} />
                 <Route name="privacy" path="/privacy" component={Privacy} />
                 <Route name="examplePage" path="/example-page" component={ExamplePage} />
+                <Route name="componentList" path="/componentList" component={ComponentList} />
+
                 <Route component={NotFound} />
               </Switch>
             </Grid>
