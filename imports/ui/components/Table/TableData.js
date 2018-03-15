@@ -1,74 +1,74 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { withTracker } from 'meteor/react-meteor-data';
 
-const Table = ({
-  title, header, data, tableShape,
-}) => (
-  <div className="box">
-    <div className="box-header">
-      <h3 className="box-title">{title}</h3>
-    </div>
-    { /* /.box-header */ }
-    <div className="box-body">
-      <table id="tableData" className={tableShape}>
-        <thead>
-          <tr>
-            {header.map(field => (
-              <th>{field.text}</th>
-                      ))}
-          </tr>
-        </thead>
-        <tbody>
-          {data.map(row => (
-            <tr>
-              {row.map(field => (
-                <td>{field}</td>
-                  ))}
-            </tr>
-          ))}
-        </tbody>
-        <tfoot>
-          <tr>
-              {header.map(field => (
+class TableData extends Component {
+  formatTable() {
+    let tableShape = 'table';
+    switch (this.props.shape) {
+      case 'striped':
+        tableShape = 'table table-bordered table-striped';
+        break;
+      case 'hover':
+        tableShape = 'table table-bordered table-hover';
+        break;
+      default:
+        tableShape = 'table table-bordered ';
+    }
+    return tableShape;
+  }
+
+  render() {
+    return (
+      <div className="box">
+        <div className="box-header">
+          <h3 className="box-title">{this.props.title}</h3>
+        </div>
+        { /* /.box-header */ }
+        <div className="box-body">
+          <table id="tableData" className={this.formatTable(this.props.shape)}>
+            <thead>
+              <tr>
+                {this.props.header.map(field => (
                   <th>{field.text}</th>
-              ))}
-          </tr>
-        </tfoot>
-      </table>
-      { /* /.box-body */ }
-    </div>
-    { /* /.box */ }
-  </div>
-);
+                            ))}
+              </tr>
+            </thead>
+            <tbody>
+              {this.props.data.map(row => (
+                <tr>
+                  {row.map(field => (
+                    <td>{field}</td>
+                                ))}
+                </tr>
+                        ))}
+            </tbody>
+            <tfoot>
+              <tr>
+                {this.props.header.map(field => (
+                  <th>{field.text}</th>
+                            ))}
+              </tr>
+            </tfoot>
+          </table>
+          { /* /.box-body */ }
+        </div>
+        { /* /.box */ }
+      </div>
+    );
+  }
+}
 
-Table.defaultProps = {
+
+TableData.defaultProps = {
   title: '',
   shape: '',
-  tableShape: '',
 };
 
-Table.propTypes = {
+TableData.propTypes = {
   title: PropTypes.string,
   shape: PropTypes.string,
-  tableShape: PropTypes.string,
   header: PropTypes.arrayOf(PropTypes.array).isRequired,
   data: PropTypes.arrayOf(PropTypes.array).isRequired,
 };
 
-export default withTracker((props) => {
-  let tableShape = 'table';
-  switch (props.shape) {
-    case 'striped':
-      tableShape = 'table table-bordered table-striped';
-      break;
-    case 'hover':
-      tableShape = 'table table-bordered table-hover';
-      break;
-    default:
-      tableShape = 'table table-bordered ';
-  }
-  return {
-    tableShape,
-  };
-})(Table);
+export default TableData;

@@ -9,7 +9,7 @@ const ComponentList = ({ tableHeader, tableData }) => (
     <section className="content">
       <div className="row">
         <div className="col-md-12">
-          <Table header={tableHeader} data={tableData} title="Simple Table" />
+          <Table header={tableHeader} data={tableData} title="Simple Table" shape="bordered" />
         </div>
       </div>
       <div className="row">
