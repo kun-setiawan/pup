@@ -36,6 +36,7 @@ import ComponentList from '../../pages/Component/ComponentList';
 import Boxes from '../../pages/Component/Box';
 import Table from '../../pages/Component/Table';
 import TableData from '../../pages/Component/TableData';
+import CarouselSimple from '../../pages/Component/Carousel';
 
 import './App.scss';
 
@@ -87,6 +88,7 @@ class App extends React.Component {
                 <Route name="box" path="/componentBox" component={Boxes} />
                 <Route name="table" path="/componentTable" component={Table} />
                 <Route name="tableData" path="/componentTableData" component={TableData} />
+                <Route name="carousel" path="/componentcarousel" component={CarouselSimple} />
                 <Route exact name="dashboard" path="/dashboard" component={Dashboard} />
 
                 <Route component={NotFound} />

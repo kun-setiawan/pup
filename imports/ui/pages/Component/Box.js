@@ -1,6 +1,4 @@
-import PropTypes from 'prop-types';
 import React from 'react';
-import { withTracker } from 'meteor/react-meteor-data';
 import BoxSmall from '../../components/Box/BoxSmall';
 import BoxInfo from '../../components/Box/BoxInfo';
 import Box from '../../components/Box/Box';
@@ -8,7 +6,7 @@ import Box from '../../components/Box/Box';
 const Boxes = () => (
   <div>
     { /*  Main content */ }
-    <section className="content">
+    <section>
 
       <div className="row">
         <h2 style={{color: 'white'}}>Box Small</h2>
