@@ -32,7 +32,7 @@ import ExamplePage from '../../pages/ExamplePage/ExamplePage';
 // import VerifyEmailAlert from '../../components/VerifyEmailAlert/VerifyEmailAlert';
 import getUserName from '../../../modules/get-user-name';
 import Header from '../../components/Header/Header';
-import ComponentList from '../../pages/Component/ComponentList';
+import List from '../../pages/Component/List';
 import Boxes from '../../pages/Component/Box';
 import Table from '../../pages/Component/Table';
 import TableData from '../../pages/Component/TableData';
@@ -87,7 +87,7 @@ class App extends React.Component {
                 <Route name="privacy" path="/privacy" component={Privacy} />
                 <Route name="examplePage" path="/example-page" component={ExamplePage} />
 
-                <Route name="componentList" path="/componentList" component={ComponentList} />
+                <Route name="list" path="/componentList" component={List} />
                 <Route name="box" path="/componentBox" component={Boxes} />
                 <Route name="table" path="/componentTable" component={Table} />
                 <Route name="tableData" path="/componentTableData" component={TableData} />
