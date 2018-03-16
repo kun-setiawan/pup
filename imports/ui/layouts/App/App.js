@@ -12,7 +12,6 @@ import { Roles } from 'meteor/alanning:roles';
 import Authenticated from '../../components/Authenticated/Authenticated';
 import Public from '../../components/Public/Public';
 import Index from '../../pages/Index/Index';
-import Dashboard from '../../pages/Dashboard/Dashboard';
 import Documents from '../../pages/Documents/Documents';
 import NewDocument from '../../pages/NewDocument/NewDocument';
 import ViewDocument from '../../pages/ViewDocument/ViewDocument';
@@ -95,7 +94,6 @@ class App extends React.Component {
                 <Route name="breadcrumb" path="/componentBreadcrumb" component={Breadcrumbs} />
                 <Route name="alert" path="/componentAlert" component={Alerts} />
                 <Route name="callout" path="/componentCallout" component={Callouts} />
-                <Route exact name="dashboard" path="/dashboard" component={Dashboard} />
 
                 <Route component={NotFound} />
               </Switch>

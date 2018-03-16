@@ -4,6 +4,9 @@ import HeaderNav from '../Header/HeaderNav';
 import HeaderTask from '../Header/HeaderTask';
 import HeaderNotif from '../Header/HeaderNotif';
 import HeaderMsg from '../Header/HeaderMsg';
+import HeaderSettingGeneral from '../Header/HeaderSettingGeneral';
+import HeaderSettingActivity from '../Header/HeaderSettingActivity';
+import HeaderSettingGeneral2 from '../Header/HeaderSettingGeneral2';
 
 const Header = props => (
   <div>
@@ -79,6 +82,27 @@ const Header = props => (
     </header>
 
     {props.authenticated ? <HeaderNav /> : '' }
+    {props.authenticated ?
+      <aside className="control-sidebar control-sidebar-dark">
+        { /* Control Sidebar */ }
+        { /* Create the tabs */ }
+        <ul className="nav nav-tabs nav-justified control-sidebar-tabs">
+          <li><a href="#control-sidebar-theme-demo-options-tab" data-toggle="tab"><i className="fa fa-wrench" /></a></li>
+          <li><a href="#control-sidebar-home-tab" data-toggle="tab"><i className="fa fa-home" /></a></li>
+          <li><a href="#control-sidebar-settings-tab" data-toggle="tab"><i className="fa fa-gears" /></a></li>
+        </ul>
+        { /* Tab panes */ }
+        <div className="tab-content">
+
+          <HeaderSettingGeneral />
+          <HeaderSettingActivity />
+          { /* TO BE DELETED AND MERGED WITH HeaderSettingGeneral WHEN DATA IS JSONIFIED */ }
+          <HeaderSettingGeneral2 />
+
+        </div>
+        { /* /.control-sidebar */ }
+      </aside>
+        : '' }
   </div>
 );
 
