@@ -36,6 +36,10 @@ import ComponentList from '../../pages/Component/ComponentList';
 import Boxes from '../../pages/Component/Box';
 import Table from '../../pages/Component/Table';
 import TableData from '../../pages/Component/TableData';
+import CarouselSimple from '../../pages/Component/Carousel';
+import Breadcrumbs from '../../pages/Component/Breadcrumb';
+import Alerts from '../../pages/Component/Alert';
+import Callouts from '../../pages/Component/Callout';
 
 import './App.scss';
 
@@ -87,6 +91,10 @@ class App extends React.Component {
                 <Route name="box" path="/componentBox" component={Boxes} />
                 <Route name="table" path="/componentTable" component={Table} />
                 <Route name="tableData" path="/componentTableData" component={TableData} />
+                <Route name="carousel" path="/componentcarousel" component={CarouselSimple} />
+                <Route name="breadcrumb" path="/componentBreadcrumb" component={Breadcrumbs} />
+                <Route name="alert" path="/componentAlert" component={Alerts} />
+                <Route name="callout" path="/componentCallout" component={Callouts} />
                 <Route exact name="dashboard" path="/dashboard" component={Dashboard} />
 
                 <Route component={NotFound} />
