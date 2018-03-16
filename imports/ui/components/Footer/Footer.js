@@ -11,14 +11,14 @@ const copyrightYear = () => {
 };
 
 const Footer = () => (
-  <div className="Footer">
-    <Grid>
-      <p className="pull-left">&copy; {copyrightYear()} Application Name</p>
-      <ul className="pull-right">
-        <li><Link to="/terms">Terms<span className="hidden-xs"> of Service</span></Link></li>
-        <li><Link to="/privacy">Privacy<span className="hidden-xs"> Policy</span></Link></li>
-      </ul>
-    </Grid>
+  <div className="main-footer">
+      <div className="pull-right hidden-xs">
+          <b>Version</b> 2.3.5
+      </div>
+      <strong>
+          <span>Copyright &copy; {copyrightYear()} </span>
+          <a href="http://almsaeedstudio.com">Almsaeed Studio</a>.
+      </strong> All rights reserved.
   </div>
 );
 
