@@ -1,7 +1,7 @@
 // ---------------- TO BE DELETED AND MERGED WITH HeaderSettingGeneral WHEN DATA IS JSONIFIED ----------------  //
 import React from 'react';
 
-const HeaderSettingGeneral = () => (
+const SidebarNav = () => (
   <div>
     <ul className="sidebar-menu" data-widget="tree">
       <li className="header">MAIN NAVIGATION</li>
@@ -177,10 +177,10 @@ const HeaderSettingGeneral = () => (
   </div>
 );
 
-HeaderSettingGeneral.defaultProps = {
+SidebarNav.defaultProps = {
 };
 
-HeaderSettingGeneral.propTypes = {
+SidebarNav.propTypes = {
 };
 
-export default HeaderSettingGeneral;
+export default SidebarNav;

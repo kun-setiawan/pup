@@ -1,107 +1,44 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import classNames from 'classnames';
 
-const HeaderSettingActivity = () => (
-  <div className="tab-pane" id="control-sidebar-home-tab">
+const HeaderSettingActivity = ({ data, id, active }) => (
+  <div className={classNames('tab-pane', { active })} id={id}>
     { /* Home tab content */ }
     <h3 className="control-sidebar-heading">Recent Activity</h3>
     <ul className="control-sidebar-menu">
-      <li>
-        <a href="#">
-          <i className="menu-icon fa fa-birthday-cake bg-red" />
+      {data.activities.map(activity => (
+        <li>
+          <a href="#">
+            <i className={classNames(`menu-icon fa ${activity.icon} bg-${activity.bg}`)} />
 
-          <div className="menu-info">
-            <h4 className="control-sidebar-subheading">Langdon&#39;s Birthday</h4>
+            <div className="menu-info">
+              <h4 className="control-sidebar-subheading">{activity.title}</h4>
 
-            <p>Will be 23 on April 24th</p>
-          </div>
-        </a>
-      </li>
-      <li>
-        <a href="#">
-          <i className="menu-icon fa fa-user bg-yellow" />
-
-          <div className="menu-info">
-            <h4 className="control-sidebar-subheading">Frodo Updated His Profile</h4>
-
-            <p>New phone +1(800)555-1234</p>
-          </div>
-        </a>
-      </li>
-      <li>
-        <a href="#">
-          <i className="menu-icon fa fa-envelope-o bg-light-blue" />
-
-          <div className="menu-info">
-            <h4 className="control-sidebar-subheading">Nora Joined Mailing List</h4>
-
-            <p>nora@example.com</p>
-          </div>
-        </a>
-      </li>
-      <li>
-        <a href="#">
-          <i className="menu-icon fa fa-file-code-o bg-green" />
-
-          <div className="menu-info">
-            <h4 className="control-sidebar-subheading">Cron Job 254 Executed</h4>
-
-            <p>Execution time 5 seconds</p>
-          </div>
-        </a>
-      </li>
+              <p>{activity.sub}</p>
+            </div>
+          </a>
+        </li>
+      ))}
     </ul>
     { /* /.control-sidebar-menu */ }
 
     <h3 className="control-sidebar-heading">Tasks Progress</h3>
     <ul className="control-sidebar-menu">
-      <li>
-        <a href="#">
-          <h4 className="control-sidebar-subheading">
-                    Custom Template Design
-                    <span className="label label-danger pull-right">70%</span>
-          </h4>
+      {data.tasks.map(task => (
+        <li>
+          <a href="#">
+            <h4 className="control-sidebar-subheading">
+              {task.title}
+              <span className={classNames(`label label-${task.bg} pull-right`)}>{task.value}%</span>
+            </h4>
 
-          <div className="progress progress-xxs">
-            <div className="progress-bar progress-bar-danger" style={{ width: '70%' }} />
-          </div>
-        </a>
-      </li>
-      <li>
-        <a href="#">
-          <h4 className="control-sidebar-subheading">
-                    Update Resume
-                    <span className="label label-success pull-right">95%</span>
-          </h4>
-
-          <div className="progress progress-xxs">
-            <div className="progress-bar progress-bar-success" style={{ width: '95%' }} />
-          </div>
-        </a>
-      </li>
-      <li>
-        <a href="#">
-          <h4 className="control-sidebar-subheading">
-                    Laravel Integration
-                    <span className="label label-warning pull-right">50%</span>
-          </h4>
-
-          <div className="progress progress-xxs">
-            <div className="progress-bar progress-bar-warning" style={{ width: '50%' }} />
-          </div>
-        </a>
-      </li>
-      <li>
-        <a href="#">
-          <h4 className="control-sidebar-subheading">
-                    Back End Framework
-                    <span className="label label-primary pull-right">68%</span>
-          </h4>
-
-          <div className="progress progress-xxs">
-            <div className="progress-bar progress-bar-primary" style={{ width: '68%' }} />
-          </div>
-        </a>
-      </li>
+            <div className="progress progress-xxs">
+              <div className={classNames(`progress-bar progress-bar-${task.bg}`)} style={{ width: `${task.value}%` }} />
+            </div>
+          </a>
+        </li>
+        ))}
     </ul>
     { /* /.control-sidebar-menu */ }
 
@@ -110,9 +47,13 @@ const HeaderSettingActivity = () => (
 );
 
 HeaderSettingActivity.defaultProps = {
+  active: false,
 };
 
 HeaderSettingActivity.propTypes = {
+  data: PropTypes.object.isRequired,
+  id: PropTypes.string.isRequired,
+  active: PropTypes.bool,
 };
 
 export default HeaderSettingActivity;

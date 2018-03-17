@@ -1,7 +1,7 @@
 // ---------------- TO BE DELETED AND MERGED WITH HeaderSettingGeneral WHEN DATA IS JSONIFIED ----------------  //
 import React from 'react';
 
-const HeaderSettingGeneral = () => (
+const SidebarSearch = () => (
   <div>
     <form action="#" method="get" className="sidebar-form">
       <div className="input-group">
@@ -15,10 +15,10 @@ const HeaderSettingGeneral = () => (
   </div>
 );
 
-HeaderSettingGeneral.defaultProps = {
+SidebarSearch.defaultProps = {
 };
 
-HeaderSettingGeneral.propTypes = {
+SidebarSearch.propTypes = {
 };
 
-export default HeaderSettingGeneral;
+export default SidebarSearch;

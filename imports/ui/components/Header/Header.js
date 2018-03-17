@@ -6,7 +6,6 @@ import HeaderNotif from '../Header/HeaderNotif';
 import HeaderMsg from '../Header/HeaderMsg';
 import HeaderSettingGeneral from '../Header/HeaderSettingGeneral';
 import HeaderSettingActivity from '../Header/HeaderSettingActivity';
-import HeaderSettingGeneral2 from '../Header/HeaderSettingGeneral2';
 
 const Header = props => (
   <div>
@@ -81,7 +80,7 @@ const Header = props => (
       </nav>
     </header>
 
-    {props.authenticated ? <HeaderNav /> : '' }
+    {props.authenticated ? <HeaderNav userProfile={props.userProfile} /> : '' }
     {props.authenticated ?
       <aside className="control-sidebar control-sidebar-dark">
         { /* Control Sidebar */ }
@@ -94,10 +93,9 @@ const Header = props => (
         { /* Tab panes */ }
         <div className="tab-content">
 
-          <HeaderSettingGeneral />
-          <HeaderSettingActivity />
-          { /* TO BE DELETED AND MERGED WITH HeaderSettingGeneral WHEN DATA IS JSONIFIED */ }
-          <HeaderSettingGeneral2 />
+          <HeaderSettingGeneral data={props.headerOptions} id="control-sidebar-theme-demo-options-tab" active />
+          <HeaderSettingActivity data={props.headerActivities} id="control-sidebar-home-tab" />
+          <HeaderSettingGeneral data={props.headerSettings} id="control-sidebar-settings-tab" />
 
         </div>
         { /* /.control-sidebar */ }
@@ -107,12 +105,14 @@ const Header = props => (
 );
 
 Header.defaultProps = {
-  name: '',
 };
 
 Header.propTypes = {
   authenticated: PropTypes.bool.isRequired,
-  name: PropTypes.string,
+  headerSettings: PropTypes.arrayOf(PropTypes.object).isRequired,
+  headerOptions: PropTypes.arrayOf(PropTypes.object).isRequired,
+  headerActivities: PropTypes.object.isRequired,
+  userProfile: PropTypes.object.isRequired,
 };
 
 export default Header;
