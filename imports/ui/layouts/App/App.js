@@ -117,6 +117,9 @@ App.propTypes = {
   emailAddress: PropTypes.string,
   emailVerified: PropTypes.bool.isRequired,
   authenticated: PropTypes.bool.isRequired,
+  headerSettings: PropTypes.arrayOf(PropTypes.object).isRequired,
+  headerOptions: PropTypes.arrayOf(PropTypes.object).isRequired,
+  headerActivities: PropTypes.object.isRequired,
 };
 
 export default withTracker(() => {
@@ -127,6 +130,68 @@ export default withTracker(() => {
   const name = user && user.profile && user.profile.name && getUserName(user.profile.name);
   const emailAddress = user && user.emails && user.emails[0].address;
 
+  const headerSettings = [{
+    title: 'General Settings',
+    items: [
+      { item: 'Report panel usage', desc: 'Some information about this general settings option' },
+      { item: 'Allow mail redirect', desc: 'Other sets of options are available' },
+      { item: 'Expose author name in posts', desc: 'Allow the user to show his name in blog posts' }],
+  }, {
+    title: 'Chat Settings',
+    items: [
+      { item: 'Show me as online' },
+      { item: 'Turn off notifications' },
+      { item: 'Delete chat history' }],
+  }];
+
+  const headerOptions = [{
+    title: 'Layout Options ',
+    items: [
+      { item: 'Fixed layout', desc: 'Activate the fixed layout. You can\'t use fixed and boxed layouts together' },
+      { item: 'Boxed layout', desc: 'Activate the boxed layout' },
+      { item: 'Toggle Sidebar', desc: 'Toggle the left sidebar\'s state (open or collapse)' },
+      { item: 'Sidebar Expand on Hover', desc: 'Let the sidebar mini expand on hover' },
+      { item: 'Toggle Right Sidebar Slide', desc: 'Toggle between slide over content and push content effects' },
+      { item: 'Toggle Right Sidebar Skin', desc: 'Toggle between dark and light skins for the right sidebar' }],
+  }];
+
+  const headerActivities = {
+    activities: [
+      {
+        icon: 'fa-birthday-cake', bg: 'red', title: 'Langdon\' Birthday', sub: 'Will be 23 on April 24th',
+      },
+      {
+        icon: 'fa-user', bg: 'yellow', title: 'Frodo Updated His Profile', sub: 'New phone +1(800)555-1234',
+      },
+      {
+        icon: 'fa-envelope-o', bg: 'light-blue', title: 'Nora Joined Mailing List', sub: 'nora@example.com',
+      },
+      {
+        icon: 'fa-file-code-o', bg: 'green', title: 'Cron Job 254 Executed', sub: 'Execution time 5 seconds',
+      },
+    ],
+    tasks: [
+      {
+        bg: 'danger', title: 'Custom Template Design', value: 70,
+      },
+      {
+        bg: 'success', title: 'Update Resume', value: 95,
+      },
+      {
+        bg: 'warning', title: 'Laravel Integration', value: 50,
+      },
+      {
+        bg: 'primary', title: 'Back End Framework', value: 68,
+      },
+    ],
+  };
+
+  const userProfile = {
+    avatar: 'dist/img/user2-160x160.jpg',
+    fullName: 'Alexander Pierce',
+    loggedIn: true,
+  };
+
   return {
     loading,
     loggingIn,
@@ -136,5 +201,9 @@ export default withTracker(() => {
     userId,
     emailAddress,
     emailVerified: user && user.emails ? user && user.emails && user.emails[0].verified : true,
+    headerSettings,
+    headerOptions,
+    headerActivities,
+    userProfile,
   };
 })(App);
