@@ -6,6 +6,7 @@ import HeaderNotif from '../Header/HeaderNotif';
 import HeaderMsg from '../Header/HeaderMsg';
 import HeaderSettingGeneral from '../Header/HeaderSettingGeneral';
 import HeaderSettingActivity from '../Header/HeaderSettingActivity';
+import HeaderProfile from '../Header/HeaderProfile';
 
 const Header = props => (
   <div>
@@ -30,47 +31,10 @@ const Header = props => (
                 </div>
               </li> : ''
               }
-            {props.authenticated ? <HeaderMsg /> : '' }
-            {props.authenticated ? <HeaderNotif /> : '' }
-            {props.authenticated ? <HeaderTask /> : '' }
-            {props.authenticated ?
-              <li className="dropdown user user-menu">
-                <a href="#" className="dropdown-toggle" data-toggle="dropdown">
-                  <img src="dist/img/user2-160x160.jpg" className="user-image" alt="User Image" />
-                  <span className="hidden-xs">Alexander Pierce</span>
-                </a>
-                <ul className="dropdown-menu">
-                  <li className="user-header">
-                    <img src="dist/img/user2-160x160.jpg" className="img-circle" alt="User Image" />
-
-                    <p>
-                                      Alexander Pierce - Web Developer
-                                      <small>Member since Nov. 2012</small>
-                    </p>
-                  </li>
-                  <li className="user-body">
-                    <div className="row">
-                      <div className="col-xs-4 text-center">
-                        <a href="#">Followers</a>
-                      </div>
-                      <div className="col-xs-4 text-center">
-                        <a href="#">Sales</a>
-                      </div>
-                      <div className="col-xs-4 text-center">
-                        <a href="#">Friends</a>
-                      </div>
-                    </div>
-                  </li>
-                  <li className="user-footer">
-                    <div className="pull-left">
-                      <a href="#" className="btn btn-default btn-flat">Profile</a>
-                    </div>
-                    <div className="pull-right">
-                      <a href="#" className="btn btn-default btn-flat">Sign out</a>
-                    </div>
-                  </li>
-                </ul>
-              </li> : '' }
+            {props.authenticated ? <HeaderMsg data={props.headerMessages} /> : '' }
+            {props.authenticated ? <HeaderNotif data={props.headerNotifications} /> : '' }
+            {props.authenticated ? <HeaderTask data={props.headerTasks} /> : '' }
+            {props.authenticated ? <HeaderProfile userProfile={props.userProfile} /> : '' }
             {props.authenticated ?
               <li>
                 <a href="#" data-toggle="control-sidebar"><i className="fa fa-gears" /></a>
@@ -113,6 +77,9 @@ Header.propTypes = {
   headerOptions: PropTypes.arrayOf(PropTypes.object).isRequired,
   headerActivities: PropTypes.object.isRequired,
   userProfile: PropTypes.object.isRequired,
+  headerTasks: PropTypes.object.isRequired,
+  headerNotifications: PropTypes.object.isRequired,
+  headerMessages: PropTypes.object.isRequired,
 };
 
 export default Header;

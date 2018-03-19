@@ -189,7 +189,51 @@ export default withTracker(() => {
   const userProfile = {
     avatar: 'dist/img/user2-160x160.jpg',
     fullName: 'Alexander Pierce',
+    position: 'Web Developer',
+    joinDate: 'Nov. 2012',
     loggedIn: true,
+  };
+
+  const headerTasks = {
+    number: 9,
+    items: [
+      { title: 'Design some buttons', value: 20, bg: 'aqua' },
+      { title: 'Create a nice theme', value: 20, bg: 'green' },
+      { title: 'Some task I need to do', value: 20, bg: 'red' },
+      { title: 'Make beautiful transitions', value: 20, bg: 'yellow' },
+    ],
+  };
+
+  const headerNotifications = {
+    number: 10,
+    items: [
+      { title: '5 new members joined today', icon: 'fa-users', bg: 'aqua' },
+      { title: 'Very long description here that may not fit into the page and may cause design problems', icon: 'fa-warning', bg: 'yellow' },
+      { title: '5 new members joined', icon: 'fa-users', bg: 'red' },
+      { title: '25 sales made', icon: 'fa-shopping-cart', bg: 'green' },
+      { title: 'You changed your username', icon: 'fa-users', bg: 'red' },
+    ],
+  };
+
+  const headerMessages = {
+    number: 4,
+    items: [
+      {
+        fullName: 'Support Team', avatar: 'dist/img/user2-160x160.jpg', subject: 'Why not buy a new awesome theme?', timePast: '5 mins',
+      },
+      {
+        fullName: 'AdminLTE Design Team', avatar: 'dist/img/user2-160x160.jpg', subject: 'Why not buy a new awesome theme?', timePast: '2 hours',
+      },
+      {
+        fullName: 'Developers', avatar: 'dist/img/user3-128x128.jpg', subject: 'Why not buy a new awesome theme?', timePast: 'Today',
+      },
+      {
+        fullName: 'Sales Department', avatar: 'dist/img/user4-128x128.jpg', subject: 'Why not buy a new awesome theme?', timePast: 'Yesterday',
+      },
+      {
+        fullName: 'Reviewers', avatar: 'dist/img/user3-128x128.jpg', subject: 'Why not buy a new awesome theme?', timePast: '2 days',
+      },
+    ],
   };
 
   return {
@@ -205,5 +249,8 @@ export default withTracker(() => {
     headerOptions,
     headerActivities,
     userProfile,
+    headerTasks,
+    headerNotifications,
+    headerMessages,
   };
 })(App);

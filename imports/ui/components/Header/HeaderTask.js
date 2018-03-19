@@ -1,95 +1,39 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import classNames from 'classnames';
 
-const HeaderTask = () => (
+const HeaderTask = props => (
   <li className="dropdown tasks-menu">
     <a href="#" className="dropdown-toggle" data-toggle="dropdown">
       <i className="fa fa-flag-o" />
-      <span className="label label-danger">9</span>
+      <span className="label label-danger">{props.data.number}</span>
     </a>
     <ul className="dropdown-menu">
-      <li className="header">You have 9 tasks</li>
+      <li className="header">You have {props.data.number} tasks</li>
       <li>
         <ul className="menu">
-          <li>
-            <a href="#">
-              <h3>
-                                Design some buttons
-                                <small className="pull-right">20%</small>
-              </h3>
-              <div className="progress xs">
-                <div
-                  className="progress-bar progress-bar-aqua"
-                  style={{ width: '20%' }}
-                  role="progressbar"
-                  aria-valuenow="20"
-                  aria-valuemin="0"
-                  aria-valuemax="100"
-                >
-                  <span className="sr-only">20% Complete</span>
+          {props.data.items.map(item => (
+            <li>
+              <a href="#">
+                <h3>
+                  {item.title}
+                  <small className="pull-right">{item.value}%</small>
+                </h3>
+                <div className="progress xs">
+                  <div
+                    className={classNames(`progress-bar progress-bar-${item.bg}`)}
+                    style={{ width: `${item.value}%` }}
+                    role="progressbar"
+                    aria-valuenow={item.value}
+                    aria-valuemin="0"
+                    aria-valuemax="100"
+                  >
+                    <span className="sr-only">{item.value}% Complete</span>
+                  </div>
                 </div>
-              </div>
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              <h3>
-                                Create a nice theme
-                                <small className="pull-right">40%</small>
-              </h3>
-              <div className="progress xs">
-                <div
-                  className="progress-bar progress-bar-green"
-                  style={{ width: '40%' }}
-                  role="progressbar"
-                  aria-valuenow="20"
-                  aria-valuemin="0"
-                  aria-valuemax="100"
-                >
-                  <span className="sr-only">40% Complete</span>
-                </div>
-              </div>
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              <h3>
-                                Some task I need to do
-                                <small className="pull-right">60%</small>
-              </h3>
-              <div className="progress xs">
-                <div
-                  className="progress-bar progress-bar-red"
-                  style={{ width: '60%' }}
-                  role="progressbar"
-                  aria-valuenow="20"
-                  aria-valuemin="0"
-                  aria-valuemax="100"
-                >
-                  <span className="sr-only">60% Complete</span>
-                </div>
-              </div>
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              <h3>
-                                Make beautiful transitions
-                                <small className="pull-right">80%</small>
-              </h3>
-              <div className="progress xs">
-                <div
-                  className="progress-bar progress-bar-yellow"
-                  style={{ width: '80%' }}
-                  role="progressbar"
-                  aria-valuenow="20"
-                  aria-valuemin="0"
-                  aria-valuemax="100"
-                >
-                  <span className="sr-only">80% Complete</span>
-                </div>
-              </div>
-            </a>
-          </li>
+              </a>
+            </li>
+            ))}
         </ul>
       </li>
       <li className="footer">
@@ -103,6 +47,7 @@ HeaderTask.defaultProps = {
 };
 
 HeaderTask.propTypes = {
+  data: PropTypes.object.isRequired,
 };
 
 export default HeaderTask;

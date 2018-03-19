@@ -1,41 +1,24 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import classNames from 'classnames';
 
-const HeaderNotif = () => (
+const HeaderNotif = props => (
   <li className="dropdown notifications-menu">
     <a href="#" className="dropdown-toggle" data-toggle="dropdown">
       <i className="fa fa-bell-o" />
-      <span className="label label-warning">10</span>
+      <span className="label label-warning">{props.data.number}</span>
     </a>
     <ul className="dropdown-menu">
-      <li className="header">You have 10 notifications</li>
+      <li className="header">You have {props.data.number} notifications</li>
       <li>
         <ul className="menu">
-          <li>
-            <a href="#">
-              <i className="fa fa-users text-aqua" /> 5 new members joined today
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              <i className="fa fa-warning text-yellow" /> Very long description here that may not fit into the
-                            page and may cause design problems
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              <i className="fa fa-users text-red" /> 5 new members joined
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              <i className="fa fa-shopping-cart text-green" /> 25 sales made
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              <i className="fa fa-user text-red" /> You changed your username
-            </a>
-          </li>
+          {props.data.items.map(item => (
+            <li>
+              <a href="#">
+                <i className={classNames(`fa ${item.icon} text-${item.bg}`)} /> {item.title}
+              </a>
+            </li>
+            ))}
         </ul>
       </li>
       <li className="footer"><a href="#">View all</a></li>
@@ -47,6 +30,7 @@ HeaderNotif.defaultProps = {
 };
 
 HeaderNotif.propTypes = {
+  data: PropTypes.object.isRequired,
 };
 
 export default HeaderNotif;
