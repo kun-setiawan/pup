@@ -24,23 +24,25 @@ import RecoverPassword from '../../pages/RecoverPassword/RecoverPassword';
 import ResetPassword from '../../pages/ResetPassword/ResetPassword';
 import Profile from '../../pages/Profile/Profile';
 import NotFound from '../../pages/NotFound/NotFound';
-import Footer from '../../components/Footer/Footer';
+// import Footer from '../../components/Footer/Footer';
+import FooterSimple from '../../components/Footer/FooterSimple';
 import Terms from '../../pages/Terms/Terms';
 import Privacy from '../../pages/Privacy/Privacy';
 import ExamplePage from '../../pages/ExamplePage/ExamplePage';
 // import VerifyEmailAlert from '../../components/VerifyEmailAlert/VerifyEmailAlert';
 import getUserName from '../../../modules/get-user-name';
 import Header from '../../components/Header/Header';
+import BreadcrumbSimple from '../../components/Breadcrumb/BreadcrumbSimple';
 import List from '../../pages/Component/List';
 import Boxes from '../../pages/Component/Box';
 import Table from '../../pages/Component/Table';
 import TableData from '../../pages/Component/TableData';
 import CarouselSimple from '../../pages/Component/Carousel';
-import Breadcrumbs from '../../pages/Component/Breadcrumb';
 import Alerts from '../../pages/Component/Alert';
 import Callouts from '../../pages/Component/Callout';
 import Social from '../../pages/Component/Social';
 import Chat from '../../pages/Component/Chat';
+import Block from '../../pages/Component/Block';
 
 import './App.scss';
 
@@ -71,38 +73,41 @@ class App extends React.Component {
             <Header {...props} {...state} />
             { /* <Navigation {...props} {...state} /> */}
             <Grid>
-              <Switch>
-                <Route exact name="index" path="/" component={Index} />
-                <Authenticated exact path="/documents" component={Documents} setAfterLoginPath={setAfterLoginPath} {...props} {...state} />
-                <Authenticated exact path="/documents/new" component={NewDocument} setAfterLoginPath={setAfterLoginPath} {...props} {...state} />
-                <Authenticated exact path="/documents/:_id" component={ViewDocument} setAfterLoginPath={setAfterLoginPath} {...props} {...state} />
-                <Authenticated exact path="/documents/:_id/edit" component={EditDocument} setAfterLoginPath={setAfterLoginPath} {...props} {...state} />
-                <Authenticated exact path="/profile" component={Profile} setAfterLoginPath={setAfterLoginPath} {...props} {...state} />
-                <Public path="/signup" component={Signup} {...props} {...state} />
-                <Public path="/login" component={Login} {...props} {...state} />
-                <Route path="/logout" render={routeProps => <Logout {...routeProps} setAfterLoginPath={setAfterLoginPath} />} {...props} {...state} />
-                <Route name="verify-email" path="/verify-email/:token" component={VerifyEmail} />
-                <Route name="recover-password" path="/recover-password" component={RecoverPassword} />
-                <Route name="reset-password" path="/reset-password/:token" component={ResetPassword} />
-                <Route name="terms" path="/terms" component={Terms} />
-                <Route name="privacy" path="/privacy" component={Privacy} />
-                <Route name="examplePage" path="/example-page" component={ExamplePage} />
+              <div className="content-wrapper">
+                <BreadcrumbSimple />
+                <Switch>
+                  <Route exact name="index" path="/" component={Index} />
+                  <Authenticated exact path="/documents" component={Documents} setAfterLoginPath={setAfterLoginPath} {...props} {...state} />
+                  <Authenticated exact path="/documents/new" component={NewDocument} setAfterLoginPath={setAfterLoginPath} {...props} {...state} />
+                  <Authenticated exact path="/documents/:_id" component={ViewDocument} setAfterLoginPath={setAfterLoginPath} {...props} {...state} />
+                  <Authenticated exact path="/documents/:_id/edit" component={EditDocument} setAfterLoginPath={setAfterLoginPath} {...props} {...state} />
+                  <Authenticated exact path="/profile" component={Profile} setAfterLoginPath={setAfterLoginPath} {...props} {...state} />
+                  <Public path="/signup" component={Signup} {...props} {...state} />
+                  <Public path="/login" component={Login} {...props} {...state} />
+                  <Route path="/logout" render={routeProps => <Logout {...routeProps} setAfterLoginPath={setAfterLoginPath} />} {...props} {...state} />
+                  <Route name="verify-email" path="/verify-email/:token" component={VerifyEmail} />
+                  <Route name="recover-password" path="/recover-password" component={RecoverPassword} />
+                  <Route name="reset-password" path="/reset-password/:token" component={ResetPassword} />
+                  <Route name="terms" path="/terms" component={Terms} />
+                  <Route name="privacy" path="/privacy" component={Privacy} />
+                  <Route name="examplePage" path="/example-page" component={ExamplePage} />
 
-                <Route name="list" path="/componentList" component={List} />
-                <Route name="box" path="/componentBox" component={Boxes} />
-                <Route name="table" path="/componentTable" component={Table} />
-                <Route name="tableData" path="/componentTableData" component={TableData} />
-                <Route name="carousel" path="/componentcarousel" component={CarouselSimple} />
-                <Route name="breadcrumb" path="/componentBreadcrumb" component={Breadcrumbs} />
-                <Route name="alert" path="/componentAlert" component={Alerts} />
-                <Route name="callout" path="/componentCallout" component={Callouts} />
-                <Route name="social" path="/componentSocial" component={Social} />
-                <Route name="chat" path="/componentChat" component={Chat} />
+                  <Route name="list" path="/componentList" component={List} />
+                  <Route name="box" path="/componentBox" component={Boxes} />
+                  <Route name="table" path="/componentTable" component={Table} />
+                  <Route name="tableData" path="/componentTableData" component={TableData} />
+                  <Route name="carousel" path="/componentcarousel" component={CarouselSimple} />
+                  <Route name="alert" path="/componentAlert" component={Alerts} />
+                  <Route name="callout" path="/componentCallout" component={Callouts} />
+                  <Route name="social" path="/componentSocial" component={Social} />
+                  <Route name="chat" path="/componentChat" component={Chat} />
+                  <Route name="block" path="/componentBlock" component={Block} />
 
-                <Route component={NotFound} />
-              </Switch>
+                  <Route component={NotFound} />
+                </Switch>
+              </div>
             </Grid>
-            <Footer />
+            <FooterSimple />
           </div>
         ) : ''}
       </Router>
@@ -162,7 +167,7 @@ export default withTracker(() => {
   const headerActivities = {
     activities: [
       {
-        icon: 'fa-birthday-cake', bg: 'red', title: 'Langdon\' Birthday', sub: 'Will be 23 on April 24th',
+        icon: 'fa-birthday-cake', bg: 'red', title: 'Langdon\' Birthday', sub: 'Will be 23 on April 24th'
       },
       {
         icon: 'fa-user', bg: 'yellow', title: 'Frodo Updated His Profile', sub: 'New phone +1(800)555-1234',

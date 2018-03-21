@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { withTracker } from 'meteor/react-meteor-data';
 import Table from '../../components/Table/Table';
+import TableItem from '../../components/Table/TableItem';
 
 const ComponentList = ({ tableHeader, tableData }) => (
   <div>
@@ -26,6 +27,11 @@ const ComponentList = ({ tableHeader, tableData }) => (
         </div>
         <div className="col-md-6">
           <Table header={tableHeader} data={tableData} title="Responsive Hover Table" shape="hover" />
+        </div>
+      </div>
+      <div className="row">
+        <div className="col-md-8">
+          <TableItem header={tableHeader} data={tableData} title="Striped Table" shape="striped" />
         </div>
       </div>
     </section>

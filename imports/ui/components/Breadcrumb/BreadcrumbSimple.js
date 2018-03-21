@@ -1,29 +1,23 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
-import BreadcrumbItem from './BreadcrumbItem';
+const BreadcrumbSimple = () => (
+  <section className="content-header">
+    <h1>
+            Dashboard
+            <small>Control panel</small>
+    </h1>
+    <ol className="breadcrumb">
+      <li><a href="#"><i className="fa fa-dashboard" /> Home</a></li>
+      <li className="active">Dashboard</li>
+    </ol>
+  </section>
+);
 
-BreadcrumbItem.propTypes = {
-  items: PropTypes.array.isRequired,
+BreadcrumbSimple.defaultProps = {
 };
 
-class BreadcrumbSimple extends Component {
-  constructor(props) {
-    super(props);
-    this.renderItems = this.renderItems.bind(this);
-  }
-
-  renderItems() {
-    return this.props.items.map(item => <BreadcrumbItem {...item} />);
-  }
-
-  render() {
-    return (
-      <ol className="breadcrumb">
-        {this.renderItems()}
-      </ol>
-    );
-  }
-}
+BreadcrumbSimple.propTypes = {
+};
 
 export default BreadcrumbSimple;
