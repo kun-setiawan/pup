@@ -23,7 +23,7 @@ const ListItem = () => (
                             <span className="label label-warning pull-right">$1800</span>
             </a>
             <span className="product-description">
-                          Samsung 32" 1080p 60Hz LED Smart HDTV.
+                          Samsung 32&quot; 1080p 60Hz LED Smart HDTV.
             </span>
           </div>
         </li>
@@ -37,7 +37,7 @@ const ListItem = () => (
                             <span className="label label-info pull-right">$700</span>
             </a>
             <span className="product-description">
-                          26" Mongoose Dolomite Men's 7-speed, Navy Blue.
+                          26&quot; Mongoose Dolomite Men&#39;s 7-speed, Navy Blue.
             </span>
           </div>
         </li>
