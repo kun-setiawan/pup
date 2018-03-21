@@ -39,6 +39,8 @@ import CarouselSimple from '../../pages/Component/Carousel';
 import Breadcrumbs from '../../pages/Component/Breadcrumb';
 import Alerts from '../../pages/Component/Alert';
 import Callouts from '../../pages/Component/Callout';
+import Social from '../../pages/Component/Social';
+import Chat from '../../pages/Component/Chat';
 
 import './App.scss';
 
@@ -94,6 +96,8 @@ class App extends React.Component {
                 <Route name="breadcrumb" path="/componentBreadcrumb" component={Breadcrumbs} />
                 <Route name="alert" path="/componentAlert" component={Alerts} />
                 <Route name="callout" path="/componentCallout" component={Callouts} />
+                <Route name="social" path="/componentSocial" component={Social} />
+                <Route name="chat" path="/componentChat" component={Chat} />
 
                 <Route component={NotFound} />
               </Switch>
@@ -222,16 +226,16 @@ export default withTracker(() => {
         fullName: 'Support Team', avatar: 'dist/img/user2-160x160.jpg', subject: 'Why not buy a new awesome theme?', timePast: '5 mins',
       },
       {
-        fullName: 'AdminLTE Design Team', avatar: 'dist/img/user2-160x160.jpg', subject: 'Why not buy a new awesome theme?', timePast: '2 hours',
+        fullName: 'AdminLTE Design Team', avatar: 'dist/img/user3-128x128.jpg', subject: 'Why not buy a new awesome theme?', timePast: '2 hours',
       },
       {
-        fullName: 'Developers', avatar: 'dist/img/user3-128x128.jpg', subject: 'Why not buy a new awesome theme?', timePast: 'Today',
+        fullName: 'Developers', avatar: 'dist/img/user4-128x128.jpg', subject: 'Why not buy a new awesome theme?', timePast: 'Today',
       },
       {
-        fullName: 'Sales Department', avatar: 'dist/img/user4-128x128.jpg', subject: 'Why not buy a new awesome theme?', timePast: 'Yesterday',
+        fullName: 'Sales Department', avatar: 'dist/img/user3-128x128.jpg', subject: 'Why not buy a new awesome theme?', timePast: 'Yesterday',
       },
       {
-        fullName: 'Reviewers', avatar: 'dist/img/user3-128x128.jpg', subject: 'Why not buy a new awesome theme?', timePast: '2 days',
+        fullName: 'Reviewers', avatar: 'dist/img/user4-128x128.jpg', subject: 'Why not buy a new awesome theme?', timePast: '2 days',
       },
     ],
   };

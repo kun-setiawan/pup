@@ -1,4 +1,3 @@
-// ---------------- TO BE DELETED AND MERGED WITH HeaderSettingGeneral WHEN DATA IS JSONIFIED ----------------  //
 import React from 'react';
 
 const SidebarSearch = () => (
