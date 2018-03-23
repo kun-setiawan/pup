@@ -132,6 +132,7 @@ class App extends React.Component {
     // const libPath = '';
     const libPath = 'http://ec2-54-173-3-232.compute-1.amazonaws.com:3000';
 
+    // if (!props.loading) {
     loadStyle(`${libPath}/bower_components/bootstrap/dist/css/bootstrap.min.css`, 'head');
     loadStyle(`${libPath}/bower_components/font-awesome/css/font-awesome.min.css`, 'head');
     loadStyle(`${libPath}/bower_components/Ionicons/css/ionicons.min.css`, 'head');
@@ -146,6 +147,9 @@ class App extends React.Component {
     loadScript('https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js', 'head');
     loadStyle('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic', 'head');
 
+    loadScript(`${libPath}/bower_components/jquery/dist/jquery.min.js`, 'body');
+    loadScript(`${libPath}/dist/js/adminlte.min.js`, 'body');
+    // }
     console.log(`!!!!!!!!!! running render ${props.loading ? 'true' : 'false'}`);
 
     return (
@@ -200,7 +204,7 @@ class App extends React.Component {
             { /* </Grid> */}
             <FooterSimple {...props} {...state} />
           </div>
-        ) : ''}
+        ) : '' }
       </Router>
     );
   }
