@@ -1,9 +1,10 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-const BoxInfoRemovable = () => (
+const BoxInfoRemovable = ({ emailAddress }) => (
   <div className="box box-success">
     <div className="box-header with-border">
-      <h3 className="box-title">Removable</h3>
+      <h3 className="box-title">Removable{emailAddress}</h3>
 
       <div className="box-tools pull-right">
         <button type="button" className="btn btn-box-tool" data-widget="remove"><i className="fa fa-times" /></button>
@@ -23,6 +24,7 @@ BoxInfoRemovable.defaultProps = {
 };
 
 BoxInfoRemovable.propTypes = {
+  emailAddress: PropTypes.string.isRequired,
 };
 
 export default BoxInfoRemovable;

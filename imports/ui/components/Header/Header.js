@@ -7,9 +7,10 @@ import HeaderMsg from '../Header/HeaderMsg';
 import HeaderSettingGeneral from '../Header/HeaderSettingGeneral';
 import HeaderSettingActivity from '../Header/HeaderSettingActivity';
 import HeaderProfile from '../Header/HeaderProfile';
+import classNames from "classnames";
 
 const Header = props => (
-  <div>
+  <div className={classNames({ 'layout-top-nav': !props.authenticated })}>
     <header className="main-header">
       <a href="index2.html" className="logo">
         <span className="logo-mini"><b>A</b>LT</span>

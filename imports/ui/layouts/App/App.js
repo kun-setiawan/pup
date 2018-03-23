@@ -4,10 +4,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import autoBind from 'react-autobind';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import { Grid } from 'react-bootstrap';
+// import { Grid } from 'react-bootstrap';
 import { Meteor } from 'meteor/meteor';
 import { withTracker } from 'meteor/react-meteor-data';
 import { Roles } from 'meteor/alanning:roles';
+import classNames from 'classnames';
 // import Navigation from '../../components/Navigation/Navigation';
 import Authenticated from '../../components/Authenticated/Authenticated';
 import Public from '../../components/Public/Public';
@@ -34,7 +35,7 @@ import getUserName from '../../../modules/get-user-name';
 import Header from '../../components/Header/Header';
 import BreadcrumbSimple from '../../components/Breadcrumb/BreadcrumbSimple';
 import List from '../../pages/Component/List';
-import Boxes from '../../pages/Component/Box';
+import Box from '../../pages/Component/Box';
 import Table from '../../pages/Component/Table';
 import TableData from '../../pages/Component/TableData';
 import CarouselSimple from '../../pages/Component/Carousel';
@@ -43,6 +44,7 @@ import Callouts from '../../pages/Component/Callout';
 import Social from '../../pages/Component/Social';
 import Chat from '../../pages/Component/Chat';
 import Block from '../../pages/Component/Block';
+import { loadScript, loadStyle } from '../../../modules/load-script';
 
 import './App.scss';
 
@@ -59,6 +61,25 @@ class App extends React.Component {
 
   render() {
     const { props, state, setAfterLoginPath } = this;
+    const libPath = '';
+    // const libPath = 'http://ec2-54-173-3-232.compute-1.amazonaws.com:3000';
+
+    loadStyle(`${libPath}/bower_components/bootstrap/dist/css/bootstrap.min.css`);
+    loadStyle(`${libPath}/bower_components/font-awesome/css/font-awesome.min.css`);
+    loadStyle(`${libPath}/bower_components/Ionicons/css/ionicons.min.css`);
+    loadStyle(`${libPath}/dist/css/AdminLTE.min.css`);
+    loadStyle(`${libPath}/dist/css/skins/_all-skins.min.css`);
+    loadStyle(`${libPath}/bower_components/morris.js/morris.css`);
+    loadStyle(`${libPath}/bower_components/jvectormap/jquery-jvectormap.css`);
+    loadStyle(`${libPath}/bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css`);
+    loadStyle(`${libPath}/bower_components/bootstrap-daterangepicker/daterangepicker.css`);
+    loadStyle(`${libPath}/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css`);
+    loadScript('https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js');
+    loadScript('https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js');
+    loadStyle('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic');
+    loadScript(`${libPath}/bower_components/jquery/dist/jquery.min.js`);
+    loadScript(`${libPath}/dist/js/adminlte.min.js`);
+
     return (
       <Router>
         {!props.loading ? (
@@ -72,9 +93,10 @@ class App extends React.Component {
                             : '' */}
             <Header {...props} {...state} />
             { /* <Navigation {...props} {...state} /> */}
-            <Grid>
+            { /* <Grid> */}
+            <div className={classNames({ 'layout-top-nav': !props.authenticated })} >
               <div className="content-wrapper">
-                <BreadcrumbSimple />
+                {!props.authenticated ? <BreadcrumbSimple /> : '' }
                 <Switch>
                   <Route exact name="index" path="/" component={Index} />
                   <Authenticated exact path="/documents" component={Documents} setAfterLoginPath={setAfterLoginPath} {...props} {...state} />
@@ -93,7 +115,7 @@ class App extends React.Component {
                   <Route name="examplePage" path="/example-page" component={ExamplePage} />
 
                   <Route name="list" path="/componentList" component={List} />
-                  <Route name="box" path="/componentBox" component={Boxes} />
+                  <Route name="box" path="/componentBox" component={Box} />
                   <Route name="table" path="/componentTable" component={Table} />
                   <Route name="tableData" path="/componentTableData" component={TableData} />
                   <Route name="carousel" path="/componentcarousel" component={CarouselSimple} />
@@ -106,8 +128,9 @@ class App extends React.Component {
                   <Route component={NotFound} />
                 </Switch>
               </div>
-            </Grid>
-            <FooterSimple />
+            </div>
+            { /* </Grid> */}
+            <FooterSimple {...props} {...state} />
           </div>
         ) : ''}
       </Router>
@@ -167,7 +190,7 @@ export default withTracker(() => {
   const headerActivities = {
     activities: [
       {
-        icon: 'fa-birthday-cake', bg: 'red', title: 'Langdon\' Birthday', sub: 'Will be 23 on April 24th'
+        icon: 'fa-birthday-cake', bg: 'red', title: 'Langdon\' Birthday', sub: 'Will be 23 on April 24th',
       },
       {
         icon: 'fa-user', bg: 'yellow', title: 'Frodo Updated His Profile', sub: 'New phone +1(800)555-1234',
