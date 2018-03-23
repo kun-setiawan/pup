@@ -73,18 +73,18 @@ class App extends React.Component {
     //   loadStyle('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic', 'head');
     // }
     //
-    // console.log(`!!!!!!!!!! running constructor ${props.loading ? 'true' : 'false'}`);
+    console.log(`!!!!!!!!!! running constructor ${props.loading ? 'true' : 'false'}`);
   }
 
   componentWillMount() {
-    // const { props } = this;
-    //
-    // console.log(`!!!!!!!!!! running willmount ${props.loading ? 'true' : 'false'}`);
+    const { props } = this;
+
+    console.log(`!!!!!!!!!! running willmount ${props.loading ? 'true' : 'false'}`);
   }
 
   componentDidMount() {
-    // const { props } = this;
-    //
+    const { props } = this;
+
     // // const libPath = '';
     // const libPath = 'http://ec2-54-173-3-232.compute-1.amazonaws.com:3000';
     //
@@ -92,8 +92,34 @@ class App extends React.Component {
     //   loadScript(`${libPath}/bower_components/jquery/dist/jquery.min.js`, 'body');
     //   loadScript(`${libPath}/dist/js/adminlte.min.js`, 'body');
     // }
-    //
-    // console.log(`!!!!!!!!!! running didmount ${props.loading ? 'true' : 'false'}`);
+
+    console.log(`!!!!!!!!!! running didmount ${props.loading ? 'true' : 'false'}`);
+  }
+
+  componentWillReceiveProps() {
+    const { props } = this;
+
+    console.log(`!!!!!!!!!! running componentWillReceiveProps ${props.loading ? 'true' : 'false'}`);
+  }
+
+  componentWillUpdate() {
+    const { props } = this;
+
+    console.log(`!!!!!!!!!! running componentWillUpdate ${props.loading ? 'true' : 'false'}`);
+  }
+
+  componentDidUpdate() {
+    const { props } = this;
+
+    // const libPath = '';
+    const libPath = 'http://ec2-54-173-3-232.compute-1.amazonaws.com:3000';
+
+    if (!props.loading) {
+      loadScript(`${libPath}/bower_components/jquery/dist/jquery.min.js`, 'body');
+      loadScript(`${libPath}/dist/js/adminlte.min.js`, 'body');
+    }
+
+    console.log(`!!!!!!!!!! running componentDidUpdate ${props.loading ? 'true' : 'false'}`);
   }
 
   setAfterLoginPath(afterLoginPath) {
@@ -119,11 +145,6 @@ class App extends React.Component {
     loadScript('https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js', 'head');
     loadScript('https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js', 'head');
     loadStyle('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic', 'head');
-
-    if (!props.loading) {
-      loadScript(`${libPath}/bower_components/jquery/dist/jquery.min.js`, 'body');
-      loadScript(`${libPath}/dist/js/adminlte.min.js`, 'body');
-    }
 
     console.log(`!!!!!!!!!! running render ${props.loading ? 'true' : 'false'}`);
 
