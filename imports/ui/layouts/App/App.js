@@ -112,12 +112,28 @@ class App extends React.Component {
     const { props } = this;
 
     // const libPath = '';
-    const libPath = 'http://ec2-54-173-3-232.compute-1.amazonaws.com:3000';
+    // const libPath = 'http://ec2-54-173-3-232.compute-1.amazonaws.com:3000';
+    // const libPath = 'https://adminlte.io/themes/AdminLTE/';
 
-    if (!props.loading) {
-      loadScript(`${libPath}/bower_components/jquery/dist/jquery.min.js`, 'body');
-      loadScript(`${libPath}/dist/js/adminlte.min.js`, 'body');
-    }
+    // if (!props.loading) {
+    //   loadStyle(`${libPath}/bower_components/bootstrap/dist/css/bootstrap.min.css`, 'head');
+    //   loadStyle(`${libPath}/bower_components/font-awesome/css/font-awesome.min.css`, 'head');
+    //   loadStyle(`${libPath}/bower_components/Ionicons/css/ionicons.min.css`, 'head');
+    //   loadStyle(`${libPath}/dist/css/AdminLTE.min.css`, 'head');
+    //   loadStyle(`${libPath}/dist/css/skins/_all-skins.min.css`, 'head');
+    //   loadStyle(`${libPath}/bower_components/morris.js/morris.css`, 'head');
+    //   loadStyle(`${libPath}/bower_components/jvectormap/jquery-jvectormap.css`, 'head');
+    //   loadStyle(`${libPath}/bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css`, 'head');
+    //   loadStyle(`${libPath}/bower_components/bootstrap-daterangepicker/daterangepicker.css`, 'head');
+    //   loadStyle(`${libPath}/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css`, 'head');
+    //   loadScript('https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js', 'head');
+    //   loadScript('https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js', 'head');
+    //   loadStyle('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic', 'head');
+    //
+    //   loadScript(`${libPath}/bower_components/jquery/dist/jquery.min.js`, 'body');
+    //   loadScript(`${libPath}/bower_components/bootstrap/dist/js/bootstrap.min.js`, 'body');
+    //   loadScript(`${libPath}/dist/js/adminlte.min.js`, 'body');
+    // }
 
     console.log(`!!!!!!!!!! running componentDidUpdate ${props.loading ? 'true' : 'false'}`);
   }
@@ -129,8 +145,9 @@ class App extends React.Component {
   render() {
     const { props, state, setAfterLoginPath } = this;
 
-    // const libPath = '';
-    const libPath = 'http://ec2-54-173-3-232.compute-1.amazonaws.com:3000';
+    const libPath = '';
+    // const libPath = 'http://ec2-54-173-3-232.compute-1.amazonaws.com:3000';
+    // const libPath = 'https://adminlte.io/themes/AdminLTE/';
 
     // if (!props.loading) {
     loadStyle(`${libPath}/bower_components/bootstrap/dist/css/bootstrap.min.css`, 'head');
@@ -148,6 +165,7 @@ class App extends React.Component {
     loadStyle('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic', 'head');
 
     loadScript(`${libPath}/bower_components/jquery/dist/jquery.min.js`, 'body');
+    loadScript(`${libPath}/bower_components/bootstrap/dist/js/bootstrap.min.js`, 'body');
     loadScript(`${libPath}/dist/js/adminlte.min.js`, 'body');
     // }
     console.log(`!!!!!!!!!! running render ${props.loading ? 'true' : 'false'}`);
