@@ -3,12 +3,12 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
 const BoxInfoCollapsable = props => (
-  <div className={classNames(`box ${props.style} box-solid`)}>
+  <div className={classNames(`box ${props.style} collapsed-box box-solid`)}>
     <div className="box-header with-border">
       <h3 className="box-title">{props.title}</h3>
 
       <div className="box-tools pull-right">
-        <button type="button" className="btn btn-box-tool" data-widget="collapse"><i className="fa fa-minus" />
+        <button type="button" className="btn btn-box-tool" data-widget="collapse"><i className="fa fa-plus" />
         </button>
         { /* /.box-tools */ }
       </div>

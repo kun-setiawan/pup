@@ -1,18 +1,20 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import classNames from 'classnames';
 
-const BoxInfoProgress = () => (
-  <div className="info-box bg-aqua">
-    <span className="info-box-icon"><i className="fa fa-bookmark-o" /></span>
+const BoxInfoProgress = props => (
+  <div className={classNames(`info-box bg-${props.color}`)}>
+    <span className="info-box-icon"><i className={classNames(`fa fa-${props.icon}`)} /></span>
 
     <div className="info-box-content">
-      <span className="info-box-text">Bookmarks</span>
-      <span className="info-box-number">41,410</span>
+      <span className="info-box-text">{props.title}</span>
+      <span className="info-box-number">{props.value}</span>
 
       <div className="progress">
-        <div className="progress-bar" style={{ width: '70%' }} />
+        <div className="progress-bar" style={{ width: `${props.progress}%` }} />
       </div>
       <span className="progress-description">
-                    70% Increase in 30 Days
+        {props.progress}% Increase in {props.limit}
       </span>
       { /* /.info-box-content */ }
     </div>
@@ -21,9 +23,22 @@ const BoxInfoProgress = () => (
 );
 
 BoxInfoProgress.defaultProps = {
+  title: '',
+  value: 0,
+  color: 'green',
+  icon: 'fa-bookmark-o',
+  progress: 0,
+  limit: '',
 };
 
 BoxInfoProgress.propTypes = {
+  title: PropTypes.string,
+  value: PropTypes.number,
+  color: PropTypes.string,
+  icon: PropTypes.string,
+  progress: PropTypes.number,
+  limit: PropTypes.string,
 };
 
 export default BoxInfoProgress;
+

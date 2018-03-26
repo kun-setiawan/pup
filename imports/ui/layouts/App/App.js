@@ -40,7 +40,6 @@ import Table from '../../pages/Component/Table';
 import TableData from '../../pages/Component/TableData';
 import CarouselSimple from '../../pages/Component/Carousel';
 import Alerts from '../../pages/Component/Alert';
-import Callouts from '../../pages/Component/Callout';
 import Social from '../../pages/Component/Social';
 import Chat from '../../pages/Component/Chat';
 import Block from '../../pages/Component/Block';
@@ -145,8 +144,8 @@ class App extends React.Component {
   render() {
     const { props, state, setAfterLoginPath } = this;
 
-    const libPath = '';
-    // const libPath = 'http://ec2-54-173-3-232.compute-1.amazonaws.com:3000';
+    // const libPath = '';
+    const libPath = 'http://ec2-54-173-3-232.compute-1.amazonaws.com:3000';
     // const libPath = 'https://adminlte.io/themes/AdminLTE/';
 
     // if (!props.loading) {
@@ -187,36 +186,37 @@ class App extends React.Component {
             <div className={classNames({ 'layout-top-nav': !props.authenticated })} >
               <div className="content-wrapper">
                 {props.authenticated ? <BreadcrumbSimple /> : '' }
-                <Switch>
-                  <Route exact name="index" path="/" component={Index} />
-                  <Authenticated exact path="/documents" component={Documents} setAfterLoginPath={setAfterLoginPath} {...props} {...state} />
-                  <Authenticated exact path="/documents/new" component={NewDocument} setAfterLoginPath={setAfterLoginPath} {...props} {...state} />
-                  <Authenticated exact path="/documents/:_id" component={ViewDocument} setAfterLoginPath={setAfterLoginPath} {...props} {...state} />
-                  <Authenticated exact path="/documents/:_id/edit" component={EditDocument} setAfterLoginPath={setAfterLoginPath} {...props} {...state} />
-                  <Authenticated exact path="/profile" component={Profile} setAfterLoginPath={setAfterLoginPath} {...props} {...state} />
-                  <Public path="/signup" component={Signup} {...props} {...state} />
-                  <Public path="/login" component={Login} {...props} {...state} />
-                  <Route path="/logout" render={routeProps => <Logout {...routeProps} setAfterLoginPath={setAfterLoginPath} />} {...props} {...state} />
-                  <Route name="verify-email" path="/verify-email/:token" component={VerifyEmail} />
-                  <Route name="recover-password" path="/recover-password" component={RecoverPassword} />
-                  <Route name="reset-password" path="/reset-password/:token" component={ResetPassword} />
-                  <Route name="terms" path="/terms" component={Terms} />
-                  <Route name="privacy" path="/privacy" component={Privacy} />
-                  <Route name="examplePage" path="/example-page" component={ExamplePage} />
+                <section className="content">
+                  <Switch>
+                    <Route exact name="index" path="/" component={Index} />
+                    <Authenticated exact path="/documents" component={Documents} setAfterLoginPath={setAfterLoginPath} {...props} {...state} />
+                    <Authenticated exact path="/documents/new" component={NewDocument} setAfterLoginPath={setAfterLoginPath} {...props} {...state} />
+                    <Authenticated exact path="/documents/:_id" component={ViewDocument} setAfterLoginPath={setAfterLoginPath} {...props} {...state} />
+                    <Authenticated exact path="/documents/:_id/edit" component={EditDocument} setAfterLoginPath={setAfterLoginPath} {...props} {...state} />
+                    <Authenticated exact path="/profile" component={Profile} setAfterLoginPath={setAfterLoginPath} {...props} {...state} />
+                    <Public path="/signup" component={Signup} {...props} {...state} />
+                    <Public path="/login" component={Login} {...props} {...state} />
+                    <Route path="/logout" render={routeProps => <Logout {...routeProps} setAfterLoginPath={setAfterLoginPath} />} {...props} {...state} />
+                    <Route name="verify-email" path="/verify-email/:token" component={VerifyEmail} />
+                    <Route name="recover-password" path="/recover-password" component={RecoverPassword} />
+                    <Route name="reset-password" path="/reset-password/:token" component={ResetPassword} />
+                    <Route name="terms" path="/terms" component={Terms} />
+                    <Route name="privacy" path="/privacy" component={Privacy} />
+                    <Route name="examplePage" path="/example-page" component={ExamplePage} />
 
-                  <Route name="list" path="/componentList" component={List} />
-                  <Route name="box" path="/componentBox" component={Box} />
-                  <Route name="table" path="/componentTable" component={Table} />
-                  <Route name="tableData" path="/componentTableData" component={TableData} />
-                  <Route name="carousel" path="/componentcarousel" component={CarouselSimple} />
-                  <Route name="alert" path="/componentAlert" component={Alerts} />
-                  <Route name="callout" path="/componentCallout" component={Callouts} />
-                  <Route name="social" path="/componentSocial" component={Social} />
-                  <Route name="chat" path="/componentChat" component={Chat} />
-                  <Route name="block" path="/componentBlock" component={Block} />
+                    <Route name="list" path="/componentList" component={List} />
+                    <Route name="box" path="/componentBox" component={Box} />
+                    <Route name="table" path="/componentTable" component={Table} />
+                    <Route name="tableData" path="/componentTableData" component={TableData} />
+                    <Route name="carousel" path="/componentcarousel" component={CarouselSimple} />
+                    <Route name="alert" path="/componentAlert" component={Alerts} />
+                    <Route name="social" path="/componentSocial" component={Social} />
+                    <Route name="chat" path="/componentChat" component={Chat} />
+                    <Route name="block" path="/componentBlock" component={Block} />
 
-                  <Route component={NotFound} />
-                </Switch>
+                    <Route component={NotFound} />
+                  </Switch>
+                </section>
               </div>
             </div>
             { /* </Grid> */}
