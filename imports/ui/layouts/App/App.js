@@ -9,40 +9,40 @@ import { Meteor } from 'meteor/meteor';
 import { withTracker } from 'meteor/react-meteor-data';
 import { Roles } from 'meteor/alanning:roles';
 import classNames from 'classnames';
-// import Navigation from '../../components/Navigation/Navigation';
-import Authenticated from '../../components/Authenticated/Authenticated';
-import Public from '../../components/Public/Public';
-import Index from '../../pages/Index/Index';
-import Documents from '../../pages/Documents/Documents';
-import NewDocument from '../../pages/NewDocument/NewDocument';
-import ViewDocument from '../../pages/ViewDocument/ViewDocument';
-import EditDocument from '../../pages/EditDocument/EditDocument';
-import Signup from '../../pages/Signup/Signup';
-import Login from '../../pages/Login/Login';
-import Logout from '../../pages/Logout/Logout';
-import VerifyEmail from '../../pages/VerifyEmail/VerifyEmail';
-import RecoverPassword from '../../pages/RecoverPassword/RecoverPassword';
-import ResetPassword from '../../pages/ResetPassword/ResetPassword';
-import Profile from '../../pages/Profile/Profile';
-import NotFound from '../../pages/NotFound/NotFound';
-// import Footer from '../../components/Footer/Footer';
-import FooterSimple from '../../components/Footer/FooterSimple';
-import Terms from '../../pages/Terms/Terms';
-import Privacy from '../../pages/Privacy/Privacy';
-import ExamplePage from '../../pages/ExamplePage/ExamplePage';
-// import VerifyEmailAlert from '../../components/VerifyEmailAlert/VerifyEmailAlert';
+// import Navigation from '../../components/Pup/Navigation/Navigation';
+import Authenticated from '../../components/Pup/Authenticated/Authenticated';
+import Public from '../../components/Pup/Public/Public';
+import Index from '../../pages/Pup/Index/Index';
+import Documents from '../../pages/Pup/Documents/Documents';
+import NewDocument from '../../pages/Pup/NewDocument/NewDocument';
+import ViewDocument from '../../pages/Pup/ViewDocument/ViewDocument';
+import EditDocument from '../../pages/Pup/EditDocument/EditDocument';
+import Signup from '../../pages/Pup/Signup/Signup';
+import Login from '../../pages/Pup/Login/Login';
+import Logout from '../../pages/Pup/Logout/Logout';
+import VerifyEmail from '../../pages/Pup/VerifyEmail/VerifyEmail';
+import RecoverPassword from '../../pages/Pup/RecoverPassword/RecoverPassword';
+import ResetPassword from '../../pages/Pup/ResetPassword/ResetPassword';
+import Profile from '../../pages/Pup/Profile/Profile';
+import NotFound from '../../pages/Pup/NotFound/NotFound';
+// import Footer from '../../components/Pup/Footer/Footer';
+import FooterSimple from '../../components/AdminLTE/Footer/FooterSimple';
+import Terms from '../../pages/Pup/Terms/Terms';
+import Privacy from '../../pages/Pup/Privacy/Privacy';
+import ExamplePage from '../../pages/Pup/ExamplePage/ExamplePage';
+// import VerifyEmailAlert from '../../Pup/components/Pup/VerifyEmailAlert/VerifyEmailAlert';
 import getUserName from '../../../modules/get-user-name';
-import Header from '../../components/Header/Header';
-import BreadcrumbSimple from '../../components/Breadcrumb/BreadcrumbSimple';
-import List from '../../pages/Component/List';
-import Box from '../../pages/Component/Box';
-import Table from '../../pages/Component/Table';
-import TableData from '../../pages/Component/TableData';
-import CarouselSimple from '../../pages/Component/Carousel';
-import Alerts from '../../pages/Component/Alert';
-import Social from '../../pages/Component/Social';
-import Chat from '../../pages/Component/Chat';
-import Block from '../../pages/Component/Block';
+import Header from '../../components/AdminLTE/Header/Header';
+import BreadcrumbSimple from '../../components/AdminLTE/Breadcrumb/BreadcrumbSimple';
+import List from '../../pages/AdminLTE/Component/List';
+import Box from '../../pages/AdminLTE/Component/Box';
+import Table from '../../pages/AdminLTE/Component/Table';
+import TableData from '../../pages/AdminLTE/Component/TableData';
+import CarouselSimple from '../../pages/AdminLTE/Component/Carousel';
+import Alerts from '../../pages/AdminLTE/Component/Alert';
+import Social from '../../pages/AdminLTE/Component/Social';
+import Chat from '../../pages/AdminLTE/Component/Chat';
+import Block from '../../pages/AdminLTE/Component/Block';
 import { loadScript, loadStyle } from '../../../modules/load-script';
 
 import './App.scss';
@@ -111,40 +111,6 @@ class App extends React.Component {
     const { props } = this;
 
     // const libPath = '';
-    // const libPath = 'http://ec2-54-173-3-232.compute-1.amazonaws.com:3000';
-    // const libPath = 'https://adminlte.io/themes/AdminLTE/';
-
-    // if (!props.loading) {
-    //   loadStyle(`${libPath}/bower_components/bootstrap/dist/css/bootstrap.min.css`, 'head');
-    //   loadStyle(`${libPath}/bower_components/font-awesome/css/font-awesome.min.css`, 'head');
-    //   loadStyle(`${libPath}/bower_components/Ionicons/css/ionicons.min.css`, 'head');
-    //   loadStyle(`${libPath}/dist/css/AdminLTE.min.css`, 'head');
-    //   loadStyle(`${libPath}/dist/css/skins/_all-skins.min.css`, 'head');
-    //   loadStyle(`${libPath}/bower_components/morris.js/morris.css`, 'head');
-    //   loadStyle(`${libPath}/bower_components/jvectormap/jquery-jvectormap.css`, 'head');
-    //   loadStyle(`${libPath}/bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css`, 'head');
-    //   loadStyle(`${libPath}/bower_components/bootstrap-daterangepicker/daterangepicker.css`, 'head');
-    //   loadStyle(`${libPath}/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css`, 'head');
-    //   loadScript('https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js', 'head');
-    //   loadScript('https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js', 'head');
-    //   loadStyle('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic', 'head');
-    //
-    //   loadScript(`${libPath}/bower_components/jquery/dist/jquery.min.js`, 'body');
-    //   loadScript(`${libPath}/bower_components/bootstrap/dist/js/bootstrap.min.js`, 'body');
-    //   loadScript(`${libPath}/dist/js/adminlte.min.js`, 'body');
-    // }
-
-    console.log(`!!!!!!!!!! running componentDidUpdate ${props.loading ? 'true' : 'false'}`);
-  }
-
-  setAfterLoginPath(afterLoginPath) {
-    this.setState({ afterLoginPath });
-  }
-
-  render() {
-    const { props, state, setAfterLoginPath } = this;
-
-    // const libPath = '';
     const libPath = 'http://ec2-54-173-3-232.compute-1.amazonaws.com:3000';
     // const libPath = 'https://adminlte.io/themes/AdminLTE/';
 
@@ -161,6 +127,41 @@ class App extends React.Component {
     loadStyle(`${libPath}/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css`, 'head');
     loadScript('https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js', 'head');
     loadScript('https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js', 'head');
+    loadStyle('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic', 'head');
+
+    loadScript(`${libPath}/bower_components/jquery/dist/jquery.min.js`, 'body');
+    loadScript(`${libPath}/bower_components/bootstrap/dist/js/bootstrap.min.js`, 'body');
+    loadScript(`${libPath}/dist/js/adminlte.min.js`, 'body');
+    // }
+
+    console.log(`!!!!!!!!!! running componentDidUpdate ${props.loading ? 'true' : 'false'}`);
+  }
+
+  setAfterLoginPath(afterLoginPath) {
+    this.setState({ afterLoginPath });
+  }
+
+  render() {
+    const { props, state, setAfterLoginPath } = this;
+
+    // const libPath = '';
+    const libPath = 'http://ec2-54-173-3-232.compute-1.amazonaws.com:3000';
+    // const libPath = 'http://localhost:3000';
+    // const libPath = 'https://adminlte.io/themes/AdminLTE/';
+
+    // if (!props.loading) {
+    loadStyle(`${libPath}/bower_components/bootstrap/dist/css/bootstrap.min.css`, 'head');
+    loadStyle(`${libPath}/bower_components/font-awesome/css/font-awesome.min.css`, 'head');
+    loadStyle(`${libPath}/bower_components/Ionicons/css/ionicons.min.css`, 'head');
+    loadStyle(`${libPath}/dist/css/AdminLTE.min.css`, 'head');
+    loadStyle(`${libPath}/dist/css/skins/_all-skins.min.css`, 'head');
+    loadStyle(`${libPath}/bower_components/morris.js/morris.css`, 'head');
+    loadStyle(`${libPath}/bower_components/jvectormap/jquery-jvectormap.css`, 'head');
+    loadStyle(`${libPath}/bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css`, 'head');
+    loadStyle(`${libPath}/bower_components/bootstrap-daterangepicker/daterangepicker.css`, 'head');
+    loadStyle(`${libPath}/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css`, 'head');
+    loadScript('https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js', 'head');
+    loadScript('https://oss.maxcdn.com/respond/1.4.2/respond.min.js', 'head');
     loadStyle('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic', 'head');
 
     loadScript(`${libPath}/bower_components/jquery/dist/jquery.min.js`, 'body');
