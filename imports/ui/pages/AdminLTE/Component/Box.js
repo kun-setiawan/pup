@@ -1,201 +1,438 @@
 import React from 'react';
+import { Meteor } from 'meteor/meteor';
 import { withTracker } from 'meteor/react-meteor-data';
-import PropTypes from 'prop-types';
+import Box from '../../../components/AdminLTE/Box/Box';
 import BoxSmall from '../../../components/AdminLTE/Box/BoxSmall';
 import BoxInfo from '../../../components/AdminLTE/Box/BoxInfo';
-import BoxInfoProgress from '../../../components/AdminLTE/Box/BoxInfoProgress';
-import BoxRemovable from '../../../components/AdminLTE/Box/BoxRemovable';
-import BoxCollapsable from '../../../components/AdminLTE/Box/BoxCollapsable';
-import BoxExpandable from '../../../components/AdminLTE/Box/BoxExpandable';
-import BoxLoading from '../../../components/AdminLTE/Box/BoxLoading';
+import SocialChat from '../../../components/AdminLTE/Social/SocialChat';
+import SocialArticle from '../../../components/AdminLTE/Social/SocialArticle';
 
-const Box = props => (
+const PageBox = () => (
   <section>
     { /*  Main content */ }
     <div className="row">
       <div className="col-md-3 col-sm-6 col-xs-12">
         <BoxInfo
-          title={props.boxInfoData1.title}
-          value={props.boxInfoData1.value}
-          color={props.boxInfoData1.color}
-          icon={props.boxInfoData1.icon}
+          iconBoxClass="bg-aqua"
+          iconClass="fa fa-envelope-o"
+          title="Messages"
+          desc="1,410"
         />
       </div>
       <div className="col-md-3 col-sm-6 col-xs-12">
         <BoxInfo
-          title={props.boxInfoData2.title}
-          value={props.boxInfoData2.value}
-          color={props.boxInfoData2.color}
-          icon={props.boxInfoData2.icon}
+          iconBoxClass="bg-green"
+          iconClass="fa fa-flag-o"
+          title="Bookmarks"
+          desc="410"
         />
       </div>
       <div className="col-md-3 col-sm-6 col-xs-12">
         <BoxInfo
-          title={props.boxInfoData3.title}
-          value={props.boxInfoData3.value}
-          color={props.boxInfoData3.color}
-          icon={props.boxInfoData3.icon}
+          iconBoxClass="bg-yellow"
+          iconClass="fa fa-files-o"
+          title="Uploads"
+          desc="13,648"
         />
       </div>
       <div className="col-md-3 col-sm-6 col-xs-12">
         <BoxInfo
-          title={props.boxInfoData4.title}
-          value={props.boxInfoData4.value}
-          color={props.boxInfoData4.color}
-          icon={props.boxInfoData4.icon}
+          iconBoxClass="bg-red"
+          iconClass="fa fa-star-o"
+          title="Likes"
+          desc="93,139"
         />
       </div>
     </div>
-
     <div className="row">
       <div className="col-md-3 col-sm-6 col-xs-12">
-        <BoxInfoProgress
-          title={props.boxInfoProgressData1.title}
-          value={props.boxInfoProgressData1.value}
-          color={props.boxInfoProgressData1.color}
-          icon={props.boxInfoProgressData1.icon}
-          progress={props.boxInfoProgressData1.progress}
-          limit={props.boxInfoProgressData1.limit}
+        <BoxInfo
+          boxClassStyle="bg-aqua"
+          iconClass="fa fa-bookmark-o"
+          title="Bookmarks"
+          desc="41,410"
+          progress={{
+              value: 70,
+              limit: ' 30 Days',
+          }}
         />
       </div>
       <div className="col-md-3 col-sm-6 col-xs-12">
-        <BoxInfoProgress
-          title={props.boxInfoProgressData2.title}
-          value={props.boxInfoProgressData2.value}
-          color={props.boxInfoProgressData2.color}
-          icon={props.boxInfoProgressData2.icon}
-          progress={props.boxInfoProgressData2.progress}
-          limit={props.boxInfoProgressData2.limit}
+        <BoxInfo
+          boxClassStyle="bg-green"
+          iconClass="fa fa-thumbs-o-up"
+          title="Likes"
+          desc="41,410"
+          progress={{
+              value: 70,
+              limit: ' 30 Days',
+          }}
         />
       </div>
       <div className="col-md-3 col-sm-6 col-xs-12">
-        <BoxInfoProgress
-          title={props.boxInfoProgressData3.title}
-          value={props.boxInfoProgressData3.value}
-          color={props.boxInfoProgressData3.color}
-          icon={props.boxInfoProgressData3.icon}
-          progress={props.boxInfoProgressData3.progress}
-          limit={props.boxInfoProgressData3.limit}
+        <BoxInfo
+          boxClassStyle="bg-yellow"
+          iconClass="fa fa fa-calendar"
+          title="Events"
+          desc="41,410"
+          progress={{
+              value: 70,
+              limit: ' 30 Days',
+          }}
         />
       </div>
       <div className="col-md-3 col-sm-6 col-xs-12">
-        <BoxInfoProgress
-          title={props.boxInfoProgressData4.title}
-          value={props.boxInfoProgressData4.value}
-          color={props.boxInfoProgressData4.color}
-          icon={props.boxInfoProgressData4.icon}
-          progress={props.boxInfoProgressData4.progress}
-          limit={props.boxInfoProgressData4.limit}
+        <BoxInfo
+          boxClassStyle="bg-red"
+          iconClass="fa fa-comments-o"
+          title="Comments"
+          desc="41,410"
+          progress={{
+              value: 70,
+              limit: ' 30 Days',
+          }}
         />
       </div>
     </div>
-
     <div className="row">
       <div className="col-md-3 col-sm-6 col-xs-12">
-        <BoxSmall />
+        <BoxSmall
+          boxClassStyle="bg-aqua"
+          title="150"
+          desc="New Orders"
+          iconClass="ion ion-bag"
+          link={{
+              url: '#',
+              iconClass: 'fa fa-arrow-circle-right',
+          }}
+        />
       </div>
       <div className="col-md-3 col-sm-6 col-xs-12">
-        <BoxSmall />
+        <BoxSmall
+          boxClassStyle="bg-green"
+          title="53 %"
+          desc="Bounce Rate"
+          iconClass="ion ion-stats-bars"
+          link={{
+              url: '#',
+              iconClass: 'fa fa-arrow-circle-right',
+          }}
+        />
       </div>
       <div className="col-md-3 col-sm-6 col-xs-12">
-        <BoxSmall />
+        <BoxSmall
+          boxClassStyle="bg-yellow"
+          title="44"
+          desc="User Registrations"
+          iconClass="ion ion-person-add"
+          link={{
+              url: '#',
+              iconClass: 'fa fa-arrow-circle-right',
+          }}
+        />
       </div>
       <div className="col-md-3 col-sm-6 col-xs-12">
-        <BoxSmall />
+        <BoxSmall
+          boxClassStyle="bg-red"
+          title="65"
+          desc="Unique Visitors"
+          iconClass="ion ion-pie-graph"
+          link={{
+              url: '#',
+              iconClass: 'fa fa-arrow-circle-right',
+          }}
+        />
       </div>
     </div>
-
     <div className="row">
       <div className="col-md-3 col-sm-6 col-xs-12">
-        <BoxExpandable title={props.boxExpandableData.title} desc={props.boxExpandableData.desc} />
+        <Box
+          title="Expandable"
+          boxClass={{
+            style: 'box-default',
+            collapsed: true,
+            solid: true,
+          }}
+          boxHeader={{
+            collapsable: true,
+          }}
+        >
+            The body of the box
+        </Box>
       </div>
       <div className="col-md-3 col-sm-6 col-xs-12">
-        <BoxCollapsable title={props.boxCollapsableData.title} desc={props.boxCollapsableData.desc} style={props.boxCollapsableData.style} />
+        <Box
+          title="Collapsable"
+          boxClass={{
+            style: 'box-warning',
+            solid: true,
+          }}
+          boxHeader={{
+            collapsable: true,
+          }}
+        >
+            The body of the box
+        </Box>
       </div>
       <div className="col-md-3 col-sm-6 col-xs-12">
-        <BoxRemovable title={props.boxRemovableData.title} desc={props.boxRemovableData.desc} style={props.boxRemovableData.style} />
+        <Box
+          title="Removable"
+          boxClass={{
+            style: 'box-success',
+          }}
+          boxHeader={{
+            removable: true,
+          }}
+        >
+            The body of the box
+        </Box>
       </div>
       <div className="col-md-3 col-sm-6 col-xs-12">
-        <BoxLoading title={props.boxLoadingData.title} desc={props.boxLoadingData.desc} style={props.boxLoadingData.style} />
+        <Box
+          title="Loading state"
+          boxClass={{
+            style: 'box-danger',
+            solid: true,
+          }}
+          boxHeader={{
+            loading: true,
+          }}
+        >
+            The body of the box
+        </Box>
+      </div>
+    </div>
+    <div className="row">
+      <div className="col-md-3 col-sm-6 col-xs-12">
+        <SocialChat
+          title="Direct Chat"
+          users={[{
+                userId: Meteor.userId(),
+                nickname: 'Green Arrow',
+                avatarUrl: '/AdminLTE/img/user1-128x128.jpg',
+                status: 'I am Oliver Queen',
+                lastUpdated: new Date(),
+            }, {
+                userId: '12345678901234abc',
+                nickname: 'Sarah Bullock',
+                avatarUrl: '/AdminLTE/img/user3-128x128.jpg',
+                status: 'To be or not to be',
+                lastUpdated: new Date(),
+            }]}
+          chats={[{
+                _id: '12345678901234567',
+                userId: Meteor.userId(),
+                message: 'Hello World !!!',
+                timestamp: new Date(),
+            }, {
+                _id: '12345678901234568',
+                userId: '12345678901234abc',
+                message: 'Hallo juga Green Arrow',
+                timestamp: new Date(),
+            }]}
+          tooltipClass="badge bg-aqua"
+          newMessageCount={3}
+          boxClass="box-info"
+          chatClass="direct-chat-info"
+          btnClass="btn-info"
+        />
+      </div>
+      <div className="col-md-3 col-sm-6 col-xs-12">
+        <SocialChat
+          title="Direct Chat"
+          users={[{
+                    userId: Meteor.userId(),
+                    nickname: 'Green Arrow',
+                    avatarUrl: '/AdminLTE/img/user1-128x128.jpg',
+                    status: 'I am Oliver Queen',
+                    lastUpdated: new Date(),
+                }, {
+                    userId: '12345678901234abc',
+                    nickname: 'Sarah Bullock',
+                    avatarUrl: '/AdminLTE/img/user3-128x128.jpg',
+                    status: 'To be or not to be',
+                    lastUpdated: new Date(),
+                }]}
+          chats={[{
+                    _id: '12345678901234567',
+                    userId: Meteor.userId(),
+                    message: 'Hello World !!!',
+                    timestamp: new Date(),
+                }, {
+                    _id: '12345678901234568',
+                    userId: '12345678901234abc',
+                    message: 'Hallo juga Green Arrow',
+                    timestamp: new Date(),
+                }]}
+          tooltipClass="badge bg-green"
+          newMessageCount={3}
+          boxClass="box-success"
+          chatClass="direct-chat-success"
+          btnClass="btn-success"
+        />
+      </div>
+      <div className="col-md-3 col-sm-6 col-xs-12">
+        <SocialChat
+          title="Direct Chat"
+          users={[{
+                    userId: Meteor.userId(),
+                    nickname: 'Green Arrow',
+                    avatarUrl: '/AdminLTE/img/user1-128x128.jpg',
+                    status: 'I am Oliver Queen',
+                    lastUpdated: new Date(),
+                }, {
+                    userId: '12345678901234abc',
+                    nickname: 'Sarah Bullock',
+                    avatarUrl: '/AdminLTE/img/user3-128x128.jpg',
+                    status: 'To be or not to be',
+                    lastUpdated: new Date(),
+                }]}
+          chats={[{
+                    _id: '12345678901234567',
+                    userId: Meteor.userId(),
+                    message: 'Hello World !!!',
+                    timestamp: new Date(),
+                }, {
+                    _id: '12345678901234568',
+                    userId: '12345678901234abc',
+                    message: 'Hallo juga Green Arrow',
+                    timestamp: new Date(),
+                }]}
+          tooltipClass="badge bg-yellow"
+          newMessageCount={3}
+          boxClass="box-warning"
+          chatClass="direct-chat-warning"
+          btnClass="btn-warning"
+        />
+      </div>
+      <div className="col-md-3 col-sm-6 col-xs-12">
+        <SocialChat
+          title="Direct Chat"
+          users={[{
+                    userId: Meteor.userId(),
+                    nickname: 'Green Arrow',
+                    avatarUrl: '/AdminLTE/img/user1-128x128.jpg',
+                    status: 'I am Oliver Queen',
+                    lastUpdated: new Date(),
+                }, {
+                    userId: '12345678901234abc',
+                    nickname: 'Sarah Bullock',
+                    avatarUrl: '/AdminLTE/img/user3-128x128.jpg',
+                    status: 'To be or not to be',
+                    lastUpdated: new Date(),
+                }]}
+          chats={[{
+                    _id: '12345678901234567',
+                    userId: Meteor.userId(),
+                    message: 'Hello World !!!',
+                    timestamp: new Date(),
+                }, {
+                    _id: '12345678901234568',
+                    userId: '12345678901234abc',
+                    message: 'Hallo juga Green Arrow',
+                    timestamp: new Date(),
+                }]}
+          tooltipClass="badge bg-red"
+          newMessageCount={3}
+          boxClass="box-danger"
+          chatClass="direct-chat-danger"
+          btnClass="btn-danger"
+        />
+      </div>
+    </div>
+    <div className="row">
+      <div className="col-lg-6 col-xs-12">
+        <SocialArticle
+          poster={{
+              name: 'Jonathan Burke Jr.',
+              imgUrl: 'AdminLTE/img/user1-128x128.jpg',
+              profileUrl: '#',
+              description: 'Shared publicly - 7:30 PM Today',
+          }}
+          contents={[{
+              _id: '12345678901234abc',
+              imgUrl: 'AdminLTE/img/photo2.png',
+              text: 'I took this photo this morning. What do you guys think?',
+          }]}
+          comments={[{
+              _id: '12345678901234abcd',
+              nickname: 'Maria Gonzales',
+              avatarUrl: 'AdminLTE/img/user3-128x128.jpg',
+              content: 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.',
+              lastUpdated: '8:03 PM Today',
+          }, {
+              _id: '12345678901234abce',
+              nickname: 'Luna Stark',
+              avatarUrl: 'AdminLTE/img/user4-128x128.jpg',
+              content: 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.',
+              lastUpdated: '8:03 PM Today',
+          }]}
+          status="127 likes - 3 comments"
+          avatarImgUrl="AdminLTE/img/user4-128x128.jpg"
+        />
+      </div>
+      <div className="col-lg-6 col-xs-12">
+        <SocialArticle
+          poster={{
+              name: 'Jonathan Burke Jr.',
+              imgUrl: 'AdminLTE/img/user1-128x128.jpg',
+              profileUrl: '#',
+              description: 'Shared publicly - 7:30 PM Today',
+          }}
+          contents={[{
+              _id: '12345678901234abcd',
+              text: 'Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at',
+            }, {
+              _id: '12345678901234abce',
+              text: 'the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.',
+            }]}
+          attachment={{
+              _id: 70,
+              title: 'Lorem ipsum text generator',
+              linkUrl: '#',
+              imgUrl: 'AdminLTE/img/photo1.png',
+              text: 'Description about the attachment can be placed here. Lorem Ipsum is simply dummy text of the printing and typesetting industry...',
+          }}
+          comments={[{
+              _id: '12345678901234abcd',
+              nickname: 'Maria Gonzales',
+              avatarUrl: 'AdminLTE/img/user3-128x128.jpg',
+              content: 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.',
+              lastUpdated: '8:03 PM Today',
+          }, {
+              _id: '12345678901234abce',
+              nickname: 'Nora Havisham',
+              avatarUrl: 'AdminLTE/img/user5-128x128.jpg',
+              content: 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.',
+              lastUpdated: '8:03 PM Today',
+          }]}
+          status="45 likes - 2 comments"
+          avatarImgUrl="AdminLTE/img/user4-128x128.jpg"
+        />
+      </div>
+    </div>
+    <div className="row">
+      <div className="col-md-3 col-sm-6 col-xs-12">
+        <BoxSmall />
+      </div>
+      <div className="col-md-3 col-sm-6 col-xs-12">
+        <BoxInfo />
+      </div>
+      <div className="col-md-3 col-sm-6 col-xs-12">
+        <Box />
+      </div>
+      <div className="col-md-3 col-sm-6 col-xs-12">
+        <SocialChat />
       </div>
     </div>
   </section>
 );
 
-Box.defaultProps = {
+PageBox.defaultProps = {
 };
 
-Box.propTypes = {
-  boxInfoData1: PropTypes.object.isRequired,
-  boxInfoData2: PropTypes.object.isRequired,
-  boxInfoData3: PropTypes.object.isRequired,
-  boxInfoData4: PropTypes.object.isRequired,
-
-  boxInfoProgressData1: PropTypes.object.isRequired,
-  boxInfoProgressData2: PropTypes.object.isRequired,
-  boxInfoProgressData3: PropTypes.object.isRequired,
-  boxInfoProgressData4: PropTypes.object.isRequired,
-
-  boxExpandableData: PropTypes.object.isRequired,
-  boxCollapsableData: PropTypes.object.isRequired,
-  boxRemovableData: PropTypes.object.isRequired,
-  boxLoadingData: PropTypes.object.isRequired,
+PageBox.propTypes = {
 };
 
-export default withTracker(() => {
-  const boxInfoData1 = {
-    title: 'Messages', value: 1410, color: 'aqua', icon: 'envelope-o',
-  };
-  const boxInfoData2 = {
-    title: 'Bookmarks', value: 410, color: 'green', icon: 'flag-o',
-  };
-  const boxInfoData3 = {
-    title: 'Uploads', value: 13648, color: 'yellow', icon: 'files-o',
-  };
-  const boxInfoData4 = {
-    title: 'Likes', value: 93139, color: 'aqua', icon: 'star-o',
-  };
-
-  const boxInfoProgressData1 = {
-    title: 'Messages', value: 1410, color: 'aqua', icon: 'bookmark-o', progress: 70, limit: '30 Days',
-  };
-  const boxInfoProgressData2 = {
-    title: 'Messages', value: 1410, color: 'green', icon: 'thumbs-o-up', progress: 70, limit: '30 Days',
-  };
-  const boxInfoProgressData3 = {
-    title: 'Messages', value: 1410, color: 'yellow', icon: 'calendar', progress: 70, limit: '30 Days',
-  };
-  const boxInfoProgressData4 = {
-    title: 'Messages', value: 1410, color: 'red', icon: 'comments-o', progress: 70, limit: '30 Days',
-  };
-
-  const boxExpandableData = {
-    title: 'Expandable', desc: 'The body of the box',
-  };
-  const boxCollapsableData = {
-    title: 'Collapsable', desc: 'The body of the box', style: 'box-warning',
-  };
-  const boxRemovableData = {
-    title: 'Removable', desc: 'The body of the box', style: 'box-success',
-  };
-  const boxLoadingData = {
-    title: 'Loading state', desc: 'The body of the box', style: 'box-danger',
-  };
-
-  return {
-    boxInfoData1,
-    boxInfoData2,
-    boxInfoData3,
-    boxInfoData4,
-
-    boxInfoProgressData1,
-    boxInfoProgressData2,
-    boxInfoProgressData3,
-    boxInfoProgressData4,
-
-    boxExpandableData,
-    boxCollapsableData,
-    boxRemovableData,
-    boxLoadingData,
-  };
-})(Box);
+export default withTracker(() => ({
+}))(PageBox);

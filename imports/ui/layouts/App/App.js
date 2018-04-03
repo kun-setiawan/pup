@@ -43,6 +43,7 @@ import Alerts from '../../pages/AdminLTE/Component/Alert';
 import Social from '../../pages/AdminLTE/Component/Social';
 import Chat from '../../pages/AdminLTE/Component/Chat';
 import Block from '../../pages/AdminLTE/Component/Block';
+
 import { loadScript, loadStyle } from '../../../modules/load-script';
 
 import './App.scss';
@@ -53,57 +54,26 @@ class App extends React.Component {
     this.state = { afterLoginPath: null };
     autoBind(this);
 
-    // // const libPath = '';
-    // const libPath = 'http://ec2-54-173-3-232.compute-1.amazonaws.com:3000';
-    //
-    // if (!props.loading) {
-    //   loadStyle(`${libPath}/bower_components/bootstrap/dist/css/bootstrap.min.css`, 'head');
-    //   loadStyle(`${libPath}/bower_components/font-awesome/css/font-awesome.min.css`, 'head');
-    //   loadStyle(`${libPath}/bower_components/Ionicons/css/ionicons.min.css`, 'head');
-    //   loadStyle(`${libPath}/dist/css/AdminLTE.min.css`, 'head');
-    //   loadStyle(`${libPath}/dist/css/skins/_all-skins.min.css`, 'head');
-    //   loadStyle(`${libPath}/bower_components/morris.js/morris.css`, 'head');
-    //   loadStyle(`${libPath}/bower_components/jvectormap/jquery-jvectormap.css`, 'head');
-    //   loadStyle(`${libPath}/bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css`, 'head');
-    //   loadStyle(`${libPath}/bower_components/bootstrap-daterangepicker/daterangepicker.css`, 'head');
-    //   loadStyle(`${libPath}/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css`, 'head');
-    //   loadScript('https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js', 'head');
-    //   loadScript('https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js', 'head');
-    //   loadStyle('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic', 'head');
-    // }
-    //
     console.log(`!!!!!!!!!! running constructor ${props.loading ? 'true' : 'false'}`);
   }
 
   componentWillMount() {
     const { props } = this;
-
     console.log(`!!!!!!!!!! running willmount ${props.loading ? 'true' : 'false'}`);
   }
 
   componentDidMount() {
     const { props } = this;
-
-    // // const libPath = '';
-    // const libPath = 'http://ec2-54-173-3-232.compute-1.amazonaws.com:3000';
-    //
-    // if (!props.loading) {
-    //   loadScript(`${libPath}/bower_components/jquery/dist/jquery.min.js`, 'body');
-    //   loadScript(`${libPath}/dist/js/adminlte.min.js`, 'body');
-    // }
-
     console.log(`!!!!!!!!!! running didmount ${props.loading ? 'true' : 'false'}`);
   }
 
   componentWillReceiveProps() {
     const { props } = this;
-
     console.log(`!!!!!!!!!! running componentWillReceiveProps ${props.loading ? 'true' : 'false'}`);
   }
 
   componentWillUpdate() {
     const { props } = this;
-
     console.log(`!!!!!!!!!! running componentWillUpdate ${props.loading ? 'true' : 'false'}`);
   }
 
